@@ -1,3 +1,31 @@
+calculating performance of an application 2 ways:
+
+1. find time when strat and subtract the time when execution end (not so good)
+
+2. Big O notation good
+
+
+Way 1:
+
+calculatestarttime()
+
+def func():
+    ....
+
+calculateendtime()
+
+check difference  =  performance of code
+
+pros:
+  easy to implement
+
+cons:
+  it based on computer or device  (low power device will be slow)
+  Based on the processing on that time (running another program same time will effect)
+
+  
+
+Way 2: consiously writting code on O notation
 Time Complexity or O(n) 
 -----------------------
 
@@ -42,4 +70,18 @@ O(300n),O(300n + 50000) = O(n) avoid count of operations and constant ,consider 
                             
 O(2n square), O(10n square) = O(n square) avoid operations may depend only on n square
 
-2n square + 2n + 3            = n square + n or O(n square) avoid n compare to N squr is small as math
+2n square + 2n + 3          = n square + n or O(n square) avoid n compare to N squr is small as math
+
+DSA Cases (best,average,worst)
+---------
+Input of n and N case also is important
+
+O(1)                    => constant
+O(log n)                => logarithmic
+O(n)                    => linear
+O(n log n)              => linear logarithmic
+O(n ^ 2)                => quadratic
+O(n ^ 3)                => qube
+
+
+Big O notation.jpg check it for more

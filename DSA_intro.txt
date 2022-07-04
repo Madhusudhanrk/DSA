@@ -1,0 +1,24 @@
+About DSA
+---------
+
+
+what is Data Structures
+-----------------------
+=> Data Structures are way of Storing data by that we can know how structualy data stored and how    optimized we can get that data.
+
+=>Example Array we storing values in index format using index number easily we can get data this is a 
+data Structure
+
+
+
+what is Algorithms
+------------------
+
+=>Algorithms is a step by step process to store,get,update and delete data.
+
+=>Many Algorithms is used for different tasks.
+
+Internally Data Structures and Algorithms are work depend on each other:
+
+=> how to store data the structre and its final output will depend on Data Structures
+=> how to perform that task is depend on the Algorithms by step by step process.

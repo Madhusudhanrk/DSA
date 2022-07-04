@@ -1,4 +1,5 @@
-Time Complexity or O(n)
+Time Complexity or O(n) 
+-----------------------
 
 In DSA we have concept of calculating the performance of a code, for that we use O of n.
 
@@ -11,7 +12,18 @@ Why We need to Use DSA and O of n concept.
 => As a programmer we need to ensure whatever the code we written it should run on every computer whether it as new Apple silicon or old Intel Pentium chip it need to run.
 
 
+a = a + 1               => 2 constant operations, adding a + 1, a = a + 1 it will end.
+                        => 2 or O(1) 
 
+for(i = 1; i < n; i++)  => 1 constant 5n based operations, i = 1 constant based on ninput 5 operations
+    a = a + 1           => 5n + 1 or O(n)
+
+
+for(i = 1; i < n; i++)     => Outside loop 1 N and Inside loop 1 N, based on Outside loop N input 
+    a = a + 1                 inside Loop operations will change. 
+    for(j = 1; j < n; j++) => 5n + 1 and 5n + 1 or O(n square)
+        b = b + 1
+               
 
 How program performance calculated?
 
@@ -20,3 +32,14 @@ How program performance calculated?
 =>Worst case
 
 As a programmer we need to avoid the worst case using DSA
+
+
+O(3),O(5),O(8)          = O(1) any way it is constant all will execute one time only
+
+O(3n),O(5n),O(8n)       = O(n) avoid count of operations,consider only n it only effect program.
+
+O(300n),O(300n + 50000) = O(n) avoid count of operations and constant ,consider n it effect program. 
+                            
+O(2n square), O(10n square) = O(n square) avoid operations may depend only on n square
+
+2n square + 2n + 3            = n square + n or O(n square) avoid n compare to N squr is small as math

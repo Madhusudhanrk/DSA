@@ -1,1 +1,22 @@
 Time Complexity or O(n)
+
+In DSA we have concept of calculating the performance of a code, for that we use O of n.
+
+O = Stands for Counting operations or performance based on operations
+
+n = Stands for input given, Based on input a program many run multiple times.
+
+Why We need to Use DSA and O of n concept.
+
+=> As a programmer we need to ensure whatever the code we written it should run on every computer whether it as new Apple silicon or old Intel Pentium chip it need to run.
+
+
+
+
+How program performance calculated?
+
+=>Best case
+=>Average case
+=>Worst case
+
+As a programmer we need to avoid the worst case using DSA

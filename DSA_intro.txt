@@ -4,7 +4,7 @@ About DSA
 
 what is Data Structures
 -----------------------
-=> Data Structures are way of Storing data by that we can know how structualy data stored and how    optimized we can get that data.
+=> Data Structures are way of Storing data by that we can know how structualy data stored and how    allocate memory and we can get data.
 
 =>Example Array we storing values in index format using index number easily we can get data this is a 
 data Structure

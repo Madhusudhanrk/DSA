@@ -9,3 +9,21 @@ A program may run in three stages in memory like:
 
 
 """
+
+"""
+Key Differences Between Stack and Heap Allocations 
+ 
+
+In a stack, the allocation and de-allocation are automatically done by the compiler whereas in heap, it needs to be done by the programmer manually.
+
+Handling of Heap frame is costlier than the handling of the stack frame.
+
+Memory shortage problem is more likely to happen in stack whereas the main issue in heap memory is fragmentation.
+
+Stack frame access is easier than the heap frame as the stack have a small region of memory and is cache-friendly, but in case of heap frames which are dispersed throughout the memory so it causes more cache misses.
+
+A stack is not flexible, the memory size allotted cannot be changed whereas a heap is flexible, and the allotted memory can be altered.
+
+Accessing time of heap takes is more than a stack.
+
+"""

@@ -1,0 +1,5 @@
+Catergories of Data structures:
+
+1. Physical DS -> Array, Linked List, Array + Linked List
+
+2. Logical     -> Stack, queues, Trees, Graphs, hashtables, language specific

@@ -60,7 +60,8 @@ How program performance calculated?
 =>Worst case
 
 As a programmer we need to avoid the worst case using DSA
-
+1.find the fastest growing term
+2.Remove the coefficient(constant) with fastest growing term.
 
 O(3),O(5),O(8)          = O(1) any way it is constant all will execute one time only
 
@@ -70,18 +71,20 @@ O(300n),O(300n + 50000) = O(n) avoid count of operations and constant ,consider 
                             
 O(2n square), O(10n square) = O(n square) avoid operations may depend only on n square
 
-2n square + 2n + 3          = n square + n or O(n square) avoid n compare to N squr is small as math
+2n^2 + 2n + 3          = n^2 + n or O(n^2) avoid n compare to N^2 is small as math
 
 DSA Cases (best,average,worst)
 ---------
 Input of n and N case also is important
 
-O(1)                    => constant
-O(log n)                => logarithmic
-O(n)                    => linear
-O(n log n)              => linear logarithmic
-O(n ^ 2)                => quadratic
-O(n ^ 3)                => qube
+O(1)                    => constant time Complexity
+O(log n)                => logarithmic time Complexity
+O(n)                    => linear time Complexity
+                           if input grows time also grows linear to run the peice of code.
+                           eg: l = [5 elemnts] , l = [50 elemnts] linearly time grows
+O(n log n)              => linear logarithmic time Complexity
+O(n ^ 2)                => quadratic time Complexity
+O(n ^ 3)                => qube time Complexity
 
 
 Big O notation.jpg check it for more

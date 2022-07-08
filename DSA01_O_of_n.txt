@@ -61,7 +61,7 @@ How program performance calculated?
 
 As a programmer we need to avoid the worst case using DSA
 1.find the fastest growing term
-2.Remove the coefficient(constant) with fastest growing term.
+2.Remove the coefficient(constant) with fastest growing term. WE GET O(INSIDE TERM)
 
 O(3),O(5),O(8)          = O(1) any way it is constant all will execute one time only
 

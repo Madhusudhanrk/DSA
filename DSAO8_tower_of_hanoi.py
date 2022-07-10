@@ -13,3 +13,12 @@ TowerOfHanoi(n, 'A', 'C', 'B')
 # A, C, B are the name of rods
 
 # Contributed By Harshit Agrawal
+
+
+Let rod 1 = 'A', rod 2 = 'B', rod 3 = 'C'.
+An example with 2 disks :
+Step 1 : Shift first disk from 'A' to 'B'.
+
+Step 2 : Shift second disk from 'A' to 'C'.
+
+Step 3 : Shift first disk from 'B' to 'C'.

@@ -22,3 +22,9 @@ Step 1 : Shift first disk from 'A' to 'B'.
 Step 2 : Shift second disk from 'A' to 'C'.
 
 Step 3 : Shift first disk from 'B' to 'C'.
+
+
+The pattern here is :
+ - Shift 'n-1' disks from 'A' to 'B', using C.
+ - Shift last disk from 'A' to 'C'.
+ - Shift 'n-1' disks from 'B' to 'C', using A.

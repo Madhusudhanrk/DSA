@@ -154,13 +154,28 @@
 
 # it is a combination of log N and N, Here based on O(log n) inside linear loop running in time complexity O(n)
 
-def nlogn(n):
-  l = n
-  while n>0:#based on outer loop O(log n)
-        for i in range(1,l):# inner loop work O(n)
-              print(i)
-        n = n // 2
+# def nlogn(n):
+#   l = n
+#   while n>0:#based on outer loop O(log n)
+#         for i in range(1,l):# inner loop work O(n)
+#               print(i)
+#         n = n // 2
 
-nlogn(4)
+# nlogn(4)
 
 #COMMON WORDS =  Doctor treating people 1 by 1 of n number coming entire day based on appointment(divided) each one take 30min.
+
+# O(2 ^ N)                => Exponential
+# design a tree for this recursive fibonacci and check f(n-1) is always more time taken it is worst case compared to f(n-2).
+#if u check tree for this recursive program the roots of the tree exponential growing first 2 branch, then from that 2 branch another 2 branch each total 4 branch, then 8 this is exponential that's y
+# 2^n instead of mention power n used.
+def f(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return f(n-1) + f(n-2)
+
+print(f(4))
+
+# recursive fibonacci is exponential time complexity 

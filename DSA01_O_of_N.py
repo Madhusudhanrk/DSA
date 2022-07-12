@@ -148,13 +148,19 @@
 #COMMON WORDS =  Doctor treating people 1 by 1 of n number coming entire day each one take 30min.
 #                linearly growing.
 
+
 # O(n log n)              => linear logarithmic time Complexity
+
+
+# it is a combination of log N and N, Here based on O(log n) inside linear loop running in time complexity O(n)
 
 def nlogn(n):
   l = n
-  while n>0:
-        n = n // 2
-        for i in range(l):
+  while n>0:#based on outer loop O(log n)
+        for i in range(1,l):# inner loop work O(n)
               print(i)
+        n = n // 2
 
 nlogn(4)
+
+#COMMON WORDS =  Doctor treating people 1 by 1 of n number coming entire day based on appointment(divided) each one take 30min.

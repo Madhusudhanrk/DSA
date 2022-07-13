@@ -22,3 +22,10 @@ Internally Data Structures and Algorithms are work depend on each other:
 
 => how to store data the structre and its final output will depend on Data Structures
 => how to perform that task is depend on the Algorithms by step by step process.
+
+
+conclusion
+
+Data Structures how we store data in memory(efficiently with many data strucures)
+
+Algorithms how to access that data efficiently based on need.

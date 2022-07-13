@@ -203,18 +203,46 @@
 
 # Factorial is worst in time complexity with less input it takes more time check with task manager.
 
-count = 0
-def f(n):
-    if n == 0:
-        global count
-        count = count + 1
-        print(count)
-        return
-    i = 0
-    while i<n:
-        f(n-1)
-        i = i + 1
+# count = 0
+# def f(n):
+#     if n == 0:
+#         global count
+#         count = count + 1
+#         print(count)
+#         return
+#     i = 0
+#     while i<n:
+#         f(n-1)
+#         i = i + 1
 
-f(3)
+# f(3)
 
 # check tree for this recursive one.
+
+
+# SPACE COMPLEXITY -> Another Side of Big O
+# ***********************************************************************************************
+
+# Space complexity is just how much memory the algorithm is updating and keeping in memory
+
+# def some_func(arr):
+#     print(arr)
+# arr = [10,20,30,40,50]
+# some_func(arr)
+
+#This program Space complexity is O(1) constant because it is not updating any thing new to memory.
+# it just send an array to func and printing no calculation in memory and no more functions in stack and no value updates
+
+# def some_func(arr):
+#     l = []
+#     limit = (len(arr))
+#     # print(limit)
+#     for i in range(limit):
+#         l.append(arr[i] )
+#     print(l)
+# arr = [10,20,30,40,50]
+# some_func(arr)
+
+#This program Space complexity is O(n) linear because it is updating values in memory.
+
+# now based on array it is updating every time, function, loop, append all are in memory stack till the len of arry linearly values updating.

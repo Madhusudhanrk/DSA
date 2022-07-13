@@ -6,6 +6,7 @@
 
 
 # Way 1:
+#---------------------------------------------------------------------------------------------------
 
 # calculatestarttime()
 
@@ -27,7 +28,8 @@
 
 # Way 2: consiously writting code on O notation
 # Time Complexity or O(n) 
-# -----------------------
+#---------------------------------------------------------------------------------------------------
+
 
 # In DSA we have concept of calculating the performance of a code, for that we use O of n.
 
@@ -54,6 +56,7 @@
                
 
 # How program performance calculated?
+#---------------------------------------------------------------------------------------------------
 
 # =>Best case
 # =>Average case
@@ -73,8 +76,10 @@
 
 # 2n^2 + 2n + 3          = n^2 + n or O(n^2) avoid n compare to N^2 is small as math
 
+
 # DSA Cases (best,average,worst) best -> worst below
-# ---------
+#---------------------------------------------------------------------------------------------------
+
 # Input of n and N case also is important
 
 # O(1)                    => constant time Complexity
@@ -89,7 +94,8 @@
 # O(N!)                   => Factorial
 
 # How to calculate:
-# -----------------
+#---------------------------------------------------------------------------------------------------
+
 
 # * we Must read step by step in algorithm and evaluate them in Big O notation the give priority to the worst case like O(N!), O(2 ^ N), O(n ^ 3), O(n ^ 2).
 
@@ -97,8 +103,8 @@
 
 
 
-# O(1)                    => constant time Complexity*************************************
-
+# O(1)                    => constant time Complexity 
+#---------------------------------------------------------------------------------------------------
 
 # def const():
 #       i = 0 
@@ -111,7 +117,9 @@
 # const()
 #COMMON WORDS =  Doctor treating only 10 persons per day with 30 min/person
 
-# O(log n)                => logarithmic time Complexity ********************************
+
+
+# O(log n)                => logarithmic time Complexity #---------------------------------------------------------------------------------------------------
 
 # log (base^n) = n  or log 2^3 = 8
 
@@ -135,7 +143,8 @@
 #COMMON WORDS =  Doctor treating selected persons from n number of person's coming per day.
 
 
-# O(n)                    => linear time Complexity ****************************************
+# O(n)                    => linear time Complexity 
+#---------------------------------------------------------------------------------------------------
 
 #                            if input grows time also grows linear to run the peice of code.
 #                            eg: l = [5 elemnts] , l = [50 elemnts] linearly time grows
@@ -149,8 +158,8 @@
 #                linearly growing.
 
 
-# O(n log n)              => linear logarithmic time Complexity
-
+# O(n log n)              => linear logarithmic time Complexity 
+#---------------------------------------------------------------------------------------------------
 
 # it is a combination of log N and N, Here based on O(log n) inside linear loop running in time complexity O(n)
 
@@ -165,17 +174,47 @@
 
 #COMMON WORDS =  Doctor treating people 1 by 1 of n number coming entire day based on appointment(divided) each one take 30min.
 
-# O(2 ^ N)                => Exponential
+
+# O(2 ^ N)                => Exponential  
+#---------------------------------------------------------------------------------------------------
+
+# eg: 2 ^ N  = 2 ^ 3  = 2 * 2 * 2 = 8
+
 # design a tree for this recursive fibonacci and check f(n-1) is always more time taken it is worst case compared to f(n-2).
 #if u check tree for this recursive program the roots of the tree exponential growing first 2 branch, then from that 2 branch another 2 branch each total 4 branch, then 8 this is exponential that's y
 # 2^n instead of mention power n used.
-def f(n):
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    return f(n-1) + f(n-2)
 
-print(f(4))
+# def f(n):
+#     if n == 0:
+#         return 0
+#     if n == 1:
+#         return 1
+#     return f(n-1) + f(n-2)
+
+# print(f(4))
 
 # recursive fibonacci is exponential time complexity 
+
+
+# O(N!)                   => Factorial
+#----------------------------------------------------------------------------------------------------
+# eg: 3!  = 3 * 2 * 1  = 6 
+# eg: 4!  = 4 * 3 * 2 * 1  = 24 for 1 increment it do more 18 operations.
+
+# Factorial is worst in time complexity with less input it takes more time check with task manager.
+
+count = 0
+def f(n):
+    if n == 0:
+        global count
+        count = count + 1
+        print(count)
+        return
+    i = 0
+    while i<n:
+        f(n-1)
+        i = i + 1
+
+f(3)
+
+# check tree for this recursive one.

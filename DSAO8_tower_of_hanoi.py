@@ -7,33 +7,7 @@
 # Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
 # No disk may be placed on top of a smaller disk
 
-
-# Recursive Python function to solve tower of hanoi
-
-def TowerOfHanoi(n , from_rod, to_rod, aux_rod):
-	if n == 0:
-		return
-	TowerOfHanoi(n-1, from_rod, aux_rod, to_rod)
-	print("Move disk",n,"from rod",from_rod,"to rod",to_rod)
-	TowerOfHanoi(n-1, aux_rod, to_rod, from_rod)
-		
-# Driver code
-n = 4
-TowerOfHanoi(n, 'A', 'C', 'B')
-# A, C, B are the name of rods
-
-# Contributed By Harshit Agrawal
-
-"""
-
-Let rod 1 = 'A', rod 2 = 'B', rod 3 = 'C'.
-An example with 2 disks :
-Step 1 : Shift first disk from 'A' to 'B'.
-
-Step 2 : Shift second disk from 'A' to 'C'.
-
-Step 3 : Shift first disk from 'B' to 'C'.
-"""
+  
 
 # The pattern here is :
 """
@@ -41,3 +15,16 @@ Step 3 : Shift first disk from 'B' to 'C'.
  - Shift last disk from 'A' to 'C'.
  - Shift 'n-1' disks from 'B' to 'C', using A.
  """
+
+def toh(n,from_bar,to_bar,aux_bar):
+    if n == 1:
+        print("Move disk 1 From",from_bar,"to bar",to_bar,"bar")
+        return
+    toh(n-1,from_bar,aux_bar,to_bar)
+    print("Move disk",n,"From",from_bar,"bar","to",to_bar,"bar")
+    toh(n-1,aux_bar,to_bar,from_bar)
+
+toh(2,"A","C","B")
+
+
+ 

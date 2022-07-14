@@ -18,13 +18,13 @@
 
 def toh(n,from_bar,to_bar,aux_bar):
     if n == 1:
-        print("Move disk 1 From",from_bar,"to bar",to_bar,"bar")
+        print("Move disk 1 From",from_bar,"to bar",to_bar)
         return
     toh(n-1,from_bar,aux_bar,to_bar)
-    print("Move disk",n,"From",from_bar,"bar","to",to_bar,"bar")
+    print("Move disk",n,"From",from_bar,"bar","to",to_bar)
     toh(n-1,aux_bar,to_bar,from_bar)
 
-toh(2,"A","C","B")
+toh(3,"A","C","B")
 
 
  

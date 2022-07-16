@@ -16,15 +16,16 @@
  - Shift 'n-1' disks from 'B' to 'C', using A.
  """
 
-def toh(n,from_bar,to_bar,aux_bar):
-    if n == 1:
-        print("Move disk 1 From",from_bar,"to bar",to_bar)
-        return
-    toh(n-1,from_bar,aux_bar,to_bar)
-    print("Move disk",n,"From",from_bar,"bar","to",to_bar)
-    toh(n-1,aux_bar,to_bar,from_bar)
-
-toh(3,"A","C","B")
-
-
  
+
+# toh(3,"A","C","B")
+
+#be aware of tree structure and reverse back tracking.
+
+def toh(n,f,mid,to):#check this argument positions
+    if n>0:
+        toh(n-1,f,to,mid)#check this argument positions
+        #here n original value is not changing just minus and passing result value
+        print("Move disk",n,"From",f,"bar","to",to)
+        toh(n-1,mid,f,to)
+toh(3,'A','B','C')

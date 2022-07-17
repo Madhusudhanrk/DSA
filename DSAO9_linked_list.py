@@ -30,3 +30,14 @@
 # Doubly Linked List − Items can be navigated forward and backward.
 
 # Circular Linked List − Last item contains link of the first element as next and the first element has a link to the last element as previous.
+
+
+# important points to be considered.
+
+# Linked List contains a link element called first.
+
+# Each link carries a data field(s) and a link field called next.
+
+# Each link is linked with its next link using its next link.
+
+# Last link carries a link as null to mark the end of the list.

@@ -24,7 +24,7 @@
 
 
 # Types of Linked List
-______________________________________________________________
+# ______________________________________________________________
 # Following are the various types of linked list.
 
 # Simple Linked List − Item navigation is forward only.
@@ -44,3 +44,6 @@ ______________________________________________________________
 # Each link is linked with its next link using its next link.
 
 # Last link carries a link as null to mark the end of the list.
+
+# Insertion Operation
+# Adding a new node in linked list is a more than one step activity. We shall learn this with diagrams here. First, create a node using the same structure and find the location where it has to be inserted.

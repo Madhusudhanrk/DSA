@@ -9,6 +9,7 @@
 # LinkedList − A Linked List contains the connection link to the first link called First.
 
 # Basic Operations
+# --------------------------------------------------------------
 # Following are the basic operations supported by a list.
 
 # Insertion − Adds an element at the beginning of the list.
@@ -23,6 +24,7 @@
 
 
 # Types of Linked List
+______________________________________________________________
 # Following are the various types of linked list.
 
 # Simple Linked List − Item navigation is forward only.
@@ -33,6 +35,7 @@
 
 
 # important points to be considered.
+#=================================================================
 
 # Linked List contains a link element called first.
 

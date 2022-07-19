@@ -47,3 +47,54 @@
 
 # Insertion Operation
 # Adding a new node in linked list is a more than one step activity. We shall learn this with diagrams here. First, create a node using the same structure and find the location where it has to be inserted.
+
+class Node():
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+    
+class LinkedList():
+    def __init__(self):
+        self.head = None
+    
+    def push(self, new_value):
+        new_node = Node(new_value)
+        new_node.next = self.head
+        self.head  = new_node
+    
+    def insertat(self, prev_node, new_value):
+        if prev_node is Node:
+            print("Previous Node is empty")
+        new_node = Node(new_value)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+    
+    def append(self, new_value):
+        new_value = Node(new_value)
+
+        if self.head is None:
+            self.head = new_value
+            return
+
+        last = self.head
+        while(last.next):
+            last  = last.next
+        
+        last.next = new_value
+
+    def printlist(self):
+        tmp = self.head
+        while(tmp):
+            print(tmp.data)
+            tmp = tmp.next
+
+if __name__ == '__main__':
+    Llist = LinkedList()
+    Llist.append(10)
+    Llist.push(20)
+
+    Llist.printlist()
+
+
+
+

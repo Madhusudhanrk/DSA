@@ -47,60 +47,61 @@
 
 # Insertion Operation
 # Adding a new node in linked list is a more than one step activity. We shall learn this with diagrams here. First, create a node using the same structure and find the location where it has to be inserted.
+# -------------------------- worked
 
 # Linked list is a logical datastructure not physical data structure like array or strings beacuse it doesn't present in python libaray and it is created using two classes Node and Linked list classes.
 
-class Node():
-    def __init__(self, data):
+class Node: #creating a Node with data and next node reference(obj)
+    def __init__(self,data = None):
         self.data = data
         self.next = None
-    
-class LinkedList():
-    def __init__(self): #Think Head stores obj address of every address.
-        self.head = None
-    
-    def push(self, new_value):
-        #In Node 2 inputs must Data and Next, Data = value to be stored, Next = address of next Node
-        new_node = Node(new_value) # Assigning value to the Data Feild 
-        new_node.next = self.head # Assigning value to the Next Feild
-        self.head  = new_node # assinging Node obj means access of data and next feild to head.
-        # print(self.head) <__main__.Node object at 0x000001A95A923D90>
-    
-    def insertat(self, prev_node, new_value):
-        if prev_node is Node:
-            print("Previous Node is empty")
-        new_node = Node(new_value)
-        new_node.next = prev_node.next
-        prev_node.next = new_node
-    
-    def append(self, new_value):
-        new_value = Node(new_value) # Assinging the new_value to the Data Feild in Node
 
-        if self.head is None: #Checking Head is None means checking any Node present.
-            self.head = new_value # If empty assing obj of Node with new_value in data feild.
+class LinkedList:
+    def __init__(self):
+        self.head = None #head stores first node reference(obj)
+
+    def push(self,data):
+        new_node = Node(data) #Created a Node with data 
+        new_node.next = self.head # Next created with value None because no other node present
+        self.head = new_node # Giving the Node address to Head
+
+    def insertat(self, prev_node, data):
+        if prev_node is None:
+            print("Previous Node is empty")
+        insert_node = Node(data) # insert Creating new node
+        insert_node.next = prev_node.next # using prev_node addr pointing to next node
+        prev_node.next = insert_node # giving inserting node addr to prev node to link
+
+    def append(self,data):
+        append_node = Node(data)
+
+        if self.head is None: #Checking is any node present
+            self.head = append_node# if no Node create new node if not append node
             return
 
-        last_node = self.head #last Node obj assigning
-        while(last_node.next): # prev_node next is None means
-            last_node  = last_node.next #storing prev_node next value in last
-        
-        last_node.next = new_value #last_node.next means last_obj_next = new_value(new_node) obj assigned.
+        prev_node = self.head # passing the prev node address to prev_node variable
+ 
+        while prev_node.next: # checking previous node next is none or not
+            prev_node = prev_node.next # if previous node as obj in next assinging the next node obj to prev_node.
+
+        prev_node.next = append_node# if previous node next in none! adding append node addr
+        # self.head = append_node
+
 
     def printlist(self):
-        tmp = self.head
-        while(tmp):
-            print(tmp.data)
-            tmp = tmp.next
+        head = self.head #getting the address from head
+        while(head):# checking head have any obj or None
+            print(head.data)#printing the Node data
+            head = head.next # assing next node Obj from present Node to head
 
-if __name__ == '__main__':
-    Llist = LinkedList()
-    Llist.append(10)
-    Llist.append(40)
-    Llist.append(50)
-    Llist.push(20)
-    
-    Llist.printlist()
-
+if __name__ == '__main__': # checking calling from same Module or not
+    llist = LinkedList()
+    llist.push("Sunday")
+    llist.append("Monday")
+    llist.append("Thursday")
+    # day3 = Node("Tuesday")
+    # llist.insertat(day3,"Wednesday")
+    llist.printlist()
 
 
 

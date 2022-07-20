@@ -48,6 +48,8 @@
 # Insertion Operation
 # Adding a new node in linked list is a more than one step activity. We shall learn this with diagrams here. First, create a node using the same structure and find the location where it has to be inserted.
 
+# Linked list is a logical datastructure not physical data structure like array or strings beacuse it doesn't present in python libaray and it is created using two classes Node and Linked list classes.
+
 class Node():
     def __init__(self, data):
         self.data = data
@@ -79,8 +81,8 @@ class LinkedList():
             return
 
         last_node = self.head #last Node obj assigning
-        # while(last.next): # prev_node next is None means
-        #     last  = last.next #storing prev_node next value in last
+        while(last_node.next): # prev_node next is None means
+            last_node  = last_node.next #storing prev_node next value in last
         
         last_node.next = new_value #last_node.next means last_obj_next = new_value(new_node) obj assigned.
 
@@ -93,8 +95,10 @@ class LinkedList():
 if __name__ == '__main__':
     Llist = LinkedList()
     Llist.append(10)
+    Llist.append(40)
+    Llist.append(50)
     Llist.push(20)
-
+    
     Llist.printlist()
 
 

@@ -54,13 +54,15 @@ class Node():
         self.next = None
     
 class LinkedList():
-    def __init__(self):
+    def __init__(self): #Think Head stores obj address of every address.
         self.head = None
     
     def push(self, new_value):
-        new_node = Node(new_value)
-        new_node.next = self.head
-        self.head  = new_node
+        #In Node 2 inputs must Data and Next, Data = value to be stored, Next = address of next Node
+        new_node = Node(new_value) # Assigning value to the Data Feild 
+        new_node.next = self.head # Assigning value to the Next Feild
+        self.head  = new_node # assinging Node obj means access of data and next feild to head.
+        # print(self.head) <__main__.Node object at 0x000001A95A923D90>
     
     def insertat(self, prev_node, new_value):
         if prev_node is Node:
@@ -70,17 +72,17 @@ class LinkedList():
         prev_node.next = new_node
     
     def append(self, new_value):
-        new_value = Node(new_value)
+        new_value = Node(new_value) # Assinging the new_value to the Data Feild in Node
 
-        if self.head is None:
-            self.head = new_value
+        if self.head is None: #Checking Head is None means checking any Node present.
+            self.head = new_value # If empty assing obj of Node with new_value in data feild.
             return
 
-        last = self.head
-        while(last.next):
-            last  = last.next
+        last_node = self.head #last Node obj assigning
+        # while(last.next): # prev_node next is None means
+        #     last  = last.next #storing prev_node next value in last
         
-        last.next = new_value
+        last_node.next = new_value #last_node.next means last_obj_next = new_value(new_node) obj assigned.
 
     def printlist(self):
         tmp = self.head

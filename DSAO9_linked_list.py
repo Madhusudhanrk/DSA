@@ -87,6 +87,31 @@ class LinkedList:
         prev_node.next = append_node# if previous node next in none! adding append node addr
         # self.head = append_node
 
+    def deleteNode(self, key):
+        temp = self.head
+
+        #case 1
+        if temp is not None:
+            if temp.data == key:
+                self.head = temp.next
+                temp = None
+                return
+
+
+        #case2
+        while(temp is not None):
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+
+        #case 3
+        if temp == None:
+            return
+
+        prev.next = temp.next
+        temp = None
+
 
     def printlist(self):
         head = self.head #getting the address from head
@@ -98,8 +123,13 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist = LinkedList()
     llist.push("Sunday")
     llist.append("Monday")
+    llist.append("Tuesday")
+    llist.append("Wednesday")
     llist.append("Thursday")
-    # day3 = Node("Tuesday")
+    llist.append("Friday")
+    llist.append("Saturday")
+    llist.deleteNode("Wednesday")
+    # day3 = Node("Tuesday")                #INSERT PENDING*************************
     # llist.insertat(day3,"Wednesday")
     llist.printlist()
 

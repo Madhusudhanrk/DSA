@@ -134,4 +134,7 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.printlist()
 
 
-
+# Deleting Node from 3 ways:
+# Beginning
+# End
+# Middle

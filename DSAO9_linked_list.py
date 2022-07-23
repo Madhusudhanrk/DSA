@@ -154,6 +154,21 @@ class LinkedList:
         length = self.called_len_list(self.head)
         print(length)
 
+    def linkedReverse(self):
+
+        #tip: change every Node next obj reference to previous Node obj address, then it will call reversly (further understand check notes previously done)
+        prev = None #step 1 starting const values
+        Next = None
+        current = self.head
+
+        while current is not None:
+            next = current.next
+            current.next = prev #step 2 switching nodes next backward
+
+            prev = current #step 3 switching nodes
+            current = next
+        self.head = prev
+
 
     def printlist(self):
         head = self.head #getting the address from head
@@ -172,8 +187,9 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Saturday")
     # llist.deleteNode("Sunday")
     # llist.del_full_list()
-    llist.lenOfLinkedList()
-    # llist.printlist()
+    # llist.lenOfLinkedList()
+    llist.linkedReverse()
+    llist.printlist()
 
     # day3 = Node("Tuesday")                #INSERT PENDING*************************
     # llist.insertat(day3,"Wednesday")

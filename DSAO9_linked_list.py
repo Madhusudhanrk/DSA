@@ -124,12 +124,15 @@ class LinkedList:
         temp = None # make Deleting Node to None rest done by garbage collector.
 
     def del_full_list(self):
-        presentNode = self.head
+        # To del entire node just take head use it to get first Node and del that node data and using next find next node and del use loop to del all node.
 
-        while presentNode:
-            nextNodeObj = presentNode.next
-            del presentNode.data 
-            presentNode = nextNodeObj
+        #Nodes without values only adress only left and garbage collector will collect adress.
+        presentNode = self.head #step1: getting first Node obj
+
+        while presentNode:#in list last None will point
+            nextNodeObj = presentNode.next#step2:storing next node address
+            del presentNode.data #step3:del current node
+            presentNode = nextNodeObj# step4: assigning the prev node address to loop.
 
     def printlist(self):
         head = self.head #getting the address from head

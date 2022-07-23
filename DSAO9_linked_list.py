@@ -123,11 +123,18 @@ class LinkedList:
         prev.next = temp.next #step 9: assigning next node address to previous node address
         temp = None # make Deleting Node to None rest done by garbage collector.
 
+    def del_full_list(self):
+        presentNode = self.head
+
+        while presentNode:
+            nextNodeObj = presentNode.next
+            del presentNode.data 
+            presentNode = nextNodeObj
 
     def printlist(self):
         head = self.head #getting the address from head
         while(head):# checking head have any obj or None
-            print(head.data)#printing the Node data
+            print(head.next)#printing the Node data
             head = head.next # assing next node Obj from present Node to head
 
 if __name__ == '__main__': # checking calling from same Module or not
@@ -139,9 +146,11 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Thursday")
     llist.append("Friday")
     llist.append("Saturday")
-    llist.deleteNode("Sunday")
+    # llist.deleteNode("Sunday")
+    llist.del_full_list()
+    llist.printlist()
+
     # day3 = Node("Tuesday")                #INSERT PENDING*************************
     # llist.insertat(day3,"Wednesday")
-    llist.printlist()
 
 

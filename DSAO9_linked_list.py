@@ -88,29 +88,34 @@ class LinkedList:
         # self.head = append_node
 
     def deleteNode(self, key):
-        temp = self.head
+        temp = self.head #step 1: Head contains first node address
+                         #step 2: Consider temp holds deleting node.
 
-        #case 1
+        #case 1 checking head is none.
+
+        if temp == None:#step3: if head means temp is None no reference, No Linked list there.
+            return
+
+        #case 2 checking first node of linked list is matching or not.
+
         if temp is not None:
-            if temp.data == key:
-                self.head = temp.next
-                temp = None
+            if temp.data == key:#step 4:if head(temp) is not Nonen then match key
+                self.head = temp.next#step 5: so the node(next Node) address is assigned to head
+                temp = None #making node to None and garbage collector will free up memory
                 return
 
 
-        #case2
-        while(temp is not None):
-            if temp.data == key:
+        #case3 if given value not in first Node
+
+        while(temp is not None):#step 6: Checks entire List until None
+            if temp.data == key:# if value got it break if not.
                 break
-            prev = temp
-            temp = temp.next
+            prev = temp #step 7: getting previous Node
+            temp = temp.next# step 8: getting Next node address
+       
 
-        #case 3
-        if temp == None:
-            return
-
-        prev.next = temp.next
-        temp = None
+        prev.next = temp.next #step 9: assigning next node address to previous node address
+        temp = None # make Deleting Node to None rest done by garbage collector.
 
 
     def printlist(self):
@@ -128,7 +133,7 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Thursday")
     llist.append("Friday")
     llist.append("Saturday")
-    llist.deleteNode("Wednesday")
+    llist.deleteNode("Sunday")
     # day3 = Node("Tuesday")                #INSERT PENDING*************************
     # llist.insertat(day3,"Wednesday")
     llist.printlist()

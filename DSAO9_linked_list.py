@@ -88,6 +88,12 @@ class LinkedList:
         # self.head = append_node
 
     def deleteNode(self, key):
+        #Deleting Node Takes 3 steps from linked list:
+        #1. Find Node using key
+        # 2. Find Previous Node and change the Node address to Deleting Node address, then the previous Node Directly point to Next Node of Deleting Node.
+        # 3. Then Free up the deleting Node.
+
+
         temp = self.head #step 1: Head contains first node address
                          #step 2: Consider temp holds deleting node.
 
@@ -139,7 +145,3 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.printlist()
 
 
-# Deleting Node from 3 ways:
-# Beginning
-# End
-# Middle

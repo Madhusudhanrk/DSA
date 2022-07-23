@@ -133,11 +133,32 @@ class LinkedList:
             nextNodeObj = presentNode.next#step2:storing next node address
             del presentNode.data #step3:del current node
             presentNode = nextNodeObj# step4: assigning the prev node address to loop.
+    
+    def called_len_list(self,node):
+        # Method1: Using Loops
+
+        # node = self.head
+        # counter = 0 
+        # while(node):
+        #     node = node.next
+        #     counter = counter + 1
+        # print(counter)
+
+        #Method 2: Using Recursion it use two methods
+        if node:
+            return 1 + self.called_len_list(node.next)
+        else:
+            return 0
+        
+    def lenOfLinkedList(self):
+        length = self.called_len_list(self.head)
+        print(length)
+
 
     def printlist(self):
         head = self.head #getting the address from head
         while(head):# checking head have any obj or None
-            print(head.next)#printing the Node data
+            print(head.data)#printing the Node data
             head = head.next # assing next node Obj from present Node to head
 
 if __name__ == '__main__': # checking calling from same Module or not
@@ -150,8 +171,9 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Friday")
     llist.append("Saturday")
     # llist.deleteNode("Sunday")
-    llist.del_full_list()
-    llist.printlist()
+    # llist.del_full_list()
+    llist.lenOfLinkedList()
+    # llist.printlist()
 
     # day3 = Node("Tuesday")                #INSERT PENDING*************************
     # llist.insertat(day3,"Wednesday")

@@ -51,6 +51,10 @@
 
 # Linked list is a logical datastructure not physical data structure like array or strings beacuse it doesn't present in python libaray and it is created using two classes Node and Linked list classes.
 
+from ast import Not
+from multiprocessing import current_process
+
+
 class Node: #creating a Node with data and next node reference(obj)
     def __init__(self,data = None):
         self.data = data
@@ -66,11 +70,19 @@ class LinkedList:
         self.head = new_node # Giving the Node address to Head
 
     def insertat(self, prev_node, data):
-        if prev_node is None:
+        if prev_node is None:#Here prev_node carries data of prev_node were we inserting Node
             print("Previous Node is empty")
-        insert_node = Node(data) # insert Creating new node
-        insert_node.next = prev_node.next # using prev_node addr pointing to next node
-        prev_node.next = insert_node # giving inserting node addr to prev node to link
+            return #step1: take two values prev_node.data , Inserting_node.data
+        curr_node = self.head
+        while curr_node is not None:#step 2: find prev_node using prev_node.data
+            if curr_node.data == prev_node:
+                prev_node = curr_node
+                break
+            curr_node = curr_node.next
+        inserting_node = Node(data)#step3:create a new node using given data
+        inserting_node.next = prev_node.next #step4: assign prev_node next to new node next
+        prev_node.next = inserting_node#step5:then new node obj to prev_node.
+
 
     def append(self,data):
         append_node = Node(data)
@@ -185,10 +197,11 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Thursday")
     llist.append("Friday")
     llist.append("Saturday")
+    llist.insertat("Friday","My day")
     # llist.deleteNode("Sunday")
     # llist.del_full_list()
     # llist.lenOfLinkedList()
-    llist.linkedReverse()
+    # llist.linkedReverse()
     llist.printlist()
 
     # day3 = Node("Tuesday")                #INSERT PENDING*************************

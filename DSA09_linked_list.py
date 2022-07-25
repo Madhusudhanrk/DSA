@@ -197,7 +197,7 @@ if __name__ == '__main__': # checking calling from same Module or not
     llist.append("Thursday")
     llist.append("Friday")
     llist.append("Saturday")
-    llist.insertat("Friday","My day")
+    llist.insertat("Sunday","My day")
     # llist.deleteNode("Sunday")
     # llist.del_full_list()
     # llist.lenOfLinkedList()

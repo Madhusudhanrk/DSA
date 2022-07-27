@@ -4,14 +4,41 @@ class Node:
         self.next = None
 
 class CircularLinkedList:
+    first_node = None #it's scope is for one object if u call from other object it will be none.
     def __init__(self):
         self.head = None
 
     def push(self, data):
-        
+        #my method
+        global first_node
         new_node = Node(data)
-        new_node.next = new_node
+
+        if self.head == None:
+    #tip1: have separate control over first node push any time changing its next value.
+          print("In Push")
+          self.head = new_node
+          new_node.next = self.head
+          first_node = self.head
+          return
+#tip2: using Head assign previous node address to new node.
+#tip3: write down in paper and solve in paper, write sudo code then write in editor.
+        new_node.next = self.head
         self.head = new_node
+        first_node.next = self.head
+
+        #hitesh method
+        # new_node = Node(data)
+        # temp = self.head
+
+        # new_node.next = self.head
+
+        # if self.head is not None:
+        #     while temp.next != self.head:
+        #         temp = temp.next
+        #     temp.next = new_node
+        # else:
+        #     new_node.next = new_node
+        # self.head = new_node
 
 
     def append(self,data):
@@ -44,9 +71,9 @@ class CircularLinkedList:
 
 
 Clist = CircularLinkedList()
-# Clist.push(10)
-# Clist.push(20)
-# Clist.push(30)
+Clist.push(100)
+Clist.push(202)
+Clist.push(330)
 Clist.append(10)
 Clist.append(20)
 Clist.append(30)

@@ -33,6 +33,7 @@ class CircularLinkedList:
         
 
     def printlist(self):
+        #tip1:For print if the node end == head(first_node) then that is last node stop it
         first_node = self.head
         while True:
             print(first_node.data)

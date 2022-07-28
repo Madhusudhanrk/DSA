@@ -61,6 +61,14 @@ class LinkedList:
         print(self.count)
         return self.count
 
+    def to_circular(self,head):
+        start = head
+
+        while head.next != None:
+            head = head.next
+
+        head = start
+        return start
 
     def delete_node(self,key):
         if self.head is not None:

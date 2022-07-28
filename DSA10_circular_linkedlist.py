@@ -65,6 +65,15 @@ class CircularLinkedList:
         print(self.count)
         return self.count
 
+     def to_circular(self,head): #convert linked list to circular list
+        start = head
+
+        while head.next != None:
+            head = head.next
+
+        head = start
+        return start
+
     def delete_node(self,key):
         if self.head is not None:
             curr_node = self.head

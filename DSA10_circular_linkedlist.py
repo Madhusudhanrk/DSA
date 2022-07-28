@@ -56,7 +56,15 @@ class CircularLinkedList:
             first_node.next = new_node
         #tip3:first implement append in single linked list then come for circular linked list.
              
-        
+    def node_count(self):#to find no of nodes
+        first_node = self.head
+        self.count = 1
+        while(first_node.next is not self.head):
+            self.count += 1
+            first_node = first_node.next
+        print(self.count)
+        return self.count
+
     def delete_node(self,key):
         if self.head is not None:
             curr_node = self.head

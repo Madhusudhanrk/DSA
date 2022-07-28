@@ -52,6 +52,16 @@ class LinkedList:
             first_node.next = new_node
 
 
+    def node_count(self):
+        first_node = self.head
+        self.count = 1
+        while(first_node.next is not self.head):
+            self.count += 1
+            first_node = first_node.next
+        print(self.count)
+        return self.count
+
+
     def delete_node(self,key):
         if self.head is not None:
             curr_node = self.head
@@ -110,19 +120,20 @@ class LinkedList:
 llist = LinkedList()
 llist1 = LinkedList()
 
-llist.push(90)
-llist.push(120)
-llist.push(40)
-llist.push(80)
+# llist.push(90)
+# llist.push(120)
+# llist.push(40)
+# llist.push(80)
 
 
-# llist.append(100)
-# llist.append(200)
-# llist.append(300)
-# llist.append(400)
-# llist.append(500)
-# llist.append(600)
+llist.append(100)
+llist.append(200)
+llist.append(300)
+llist.append(400)
+llist.append(500)
+llist.append(600)
 
-llist.delete_node(80)
+# llist.delete_node(80)
 
 llist.printlist()
+llist.node_count()

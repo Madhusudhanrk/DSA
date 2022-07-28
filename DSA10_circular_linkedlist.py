@@ -62,12 +62,16 @@ class CircularLinkedList:
             curr_node = self.head
 # step1: check the key is matched with first node if matched.
 #step2: if key matched then check if list have 
+#only One Node---------
+#make head to none
+#free up the node
+
 # more than one node-------------
 #  if more than one node:
 # * must change the head to 2nd node
-# * relase the node memory
+# * relase the node memory.
 # * and change the last node point to new head.
-            if self.head.data == key:
+            if self.head.data == key:#checking first node matches the key
                 if self.head == self.head.next:#Only if single node present and key matched
                     self.head.data = None
                     self.head.next = None
@@ -75,24 +79,27 @@ class CircularLinkedList:
                     return
                 else:#First Node matched multiple nodes present
                     present_node = self.head
+                    #this while ensures that the last node will not point to deleted first_node
                     while True:
                         present_node = present_node.next
                         if present_node.next == self.head:
                             present_node.next = self.head.next
                             break
                     curr_node = None #releasing memory of first node
-                    next_node = self.head.next
+                    next_node = self.head.next#this 3 line head changed to next node
                     self.head = None
                     self.head = next_node
                     return
             else:
-                while True:
+# step3:if first node not matched loop through every node by having prev_node info if node found then node next value to prev_node.next and free up memory for current node.
+                while True: #this loop ensures find node and delete node except 1st node.
                     prev_node = curr_node
                     curr_node = curr_node.next
                     if curr_node.data == key:
                         prev_node.next = curr_node.next
                         curr_node = None
                         break
+# step4:if node not present return msg not found.
                     else:
                         if curr_node.next == self.head:
                             print("Node Not Found!")

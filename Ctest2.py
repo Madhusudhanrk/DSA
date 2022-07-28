@@ -1,32 +1,14 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self,data):
         self.data = data
         self.next = None
 
-class CircularLinkedList:
-    first_node = None #it's scope is for one object if u call from other object it will be none.
+class LinkedList:
+    first_node = None
     def __init__(self):
         self.head = None
 
-    def push(self, data):
-        #my method
-        global first_node
-        new_node = Node(data)
-
-        if self.head == None:
-    #tip1: have separate control over first node push any time changing its next value.
-          print("In Push")
-          self.head = new_node
-          new_node.next = self.head
-          first_node = self.head
-          return
-#tip2: using Head assign previous node address to new node.
-#tip3: write down in paper and solve in paper, write sudo code then write in editor.
-        new_node.next = self.head
-        self.head = new_node
-        first_node.next = self.head
-
-        #Hitesh method --------
+    def push(self,data):
         # new_node = Node(data)
         # temp = self.head
 
@@ -40,23 +22,36 @@ class CircularLinkedList:
         #     new_node.next = new_node
         # self.head = new_node
 
+        # My Method
+        global first_node
+        new_node = Node(data)
+
+        if self.head == None:
+          self.head = new_node
+          new_node.next = self.head
+          first_node = self.head
+          return
+
+        new_node.next = self.head
+        self.head = new_node
+        first_node.next = self.head
+        
+         
 
     def append(self,data):
-        #tip: In circular list every new node we append it's next should be point to first node.
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
 
         new_node.next = self.head
-        #tip 2: design in paper first then come to code.
+        
         if self.head is not None:
             first_node = self.head
             while first_node.next != self.head:
                 first_node = first_node.next
             first_node.next = new_node
-        #tip3:first implement append in single linked list then come for circular linked list.
-             
-        
+
+
     def delete_node(self,key):
         if self.head is not None:
             curr_node = self.head
@@ -97,9 +92,9 @@ class CircularLinkedList:
                         if curr_node.next == self.head:
                             print("Node Not Found!")
                             return
-
+    
+    
     def printlist(self):
-        #tip1:For print if the node end == head(first_node) then that is last node stop it
         first_node = self.head
         while True:
             print(first_node.data)
@@ -109,13 +104,25 @@ class CircularLinkedList:
                 break
 
 
-Clist = CircularLinkedList()
-Clist.push(100)
-Clist.push(202)
-Clist.push(330)
-Clist.append(10)
-Clist.append(20)
-Clist.append(30)
-Clist.append(40)
 
-Clist.printlist()
+
+
+llist = LinkedList()
+llist1 = LinkedList()
+
+# llist.push(90)
+# llist.push(120)
+# llist.push(40)
+# llist.push(80)
+
+
+llist.append(100)
+llist.append(200)
+llist.append(300)
+llist.append(400)
+llist.append(500)
+llist.append(600)
+
+llist.delete_node(100)
+
+llist.printlist()

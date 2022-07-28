@@ -135,6 +135,29 @@ class LinkedList:
         prev.next = temp.next #step 9: assigning next node address to previous node address
         temp = None # make Deleting Node to None rest done by garbage collector.
 
+        # My Method----------
+
+        # if self.head is not None:
+        #     curr_node = self.head
+
+        #     if self.head.data == key:
+        #         next_node = self.head.next
+        #         self.head = None
+        #         self.head = next_node
+        #         return
+        #     else:
+        #         while curr_node:
+        #             prev_node = curr_node
+        #             curr_node = curr_node.next
+        #             if curr_node.data == key:
+        #                 prev_node.next = curr_node.next
+        #                 curr_node = None
+        #                 break
+        #             else:
+        #                 if curr_node.next == None:
+        #                     print("Node Not Found!")
+        #                     return
+
     def del_full_list(self):
         # To del entire node just take head use it to get first Node and del that node data and using next find next node and del use loop to del all node.
 

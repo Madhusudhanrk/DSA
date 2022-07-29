@@ -15,14 +15,15 @@ class DLinkedList:
     #     self.head = new_node
     
     def append(self,data):
+        #tip:always keep prev node reference
         new_node = Node(data)
-        if self.head is None:
+        if self.head is None:#tip2:separate first node and give different aproach to it.
             new_node.prev = None
             new_node.next = None
             self.head = new_node
         else:
             prev_node = self.head
-            while prev_node.next:
+            while prev_node.next:#tip3:consider every node obj by changing position.
                 prev_node = prev_node.next
             prev_node.next = new_node
 

@@ -14,14 +14,25 @@ class LinkedList:
 
     def append(self,data):
         new_node = Node(data)
-        new_node.next = None
+        # new_node.next = None
+        # if self.head is None:
+        #     self.head = new_node
+        # else:
+        #     first_node = self.head
+        #     while first_node.next != None:
+        #         first_node = first_node.next
+        #     first_node.next = new_node
+
         if self.head is None:
+            new_node.next = None
             self.head = new_node
         else:
-            first_node = self.head
-            while first_node.next != None:
-                first_node = first_node.next
-            first_node.next = new_node
+            prev_node = self.head
+            while prev_node.next:
+                prev_node = prev_node.next
+            prev_node.next = new_node
+            new_node.next = None
+
 
     def delete_node(self,key):
         if self.head is not None:
@@ -74,15 +85,15 @@ class LinkedList:
 
 llist = LinkedList()
 
-# llist.append(10)
-# llist.append(20)
-# llist.append(30)
-# llist.append(40)
+llist.append(10)
+llist.append(20)
+llist.append(30)
+llist.append(40)
 
-llist.push(10)
-llist.push(20)
-llist.push(30)
-llist.push(50)
+# llist.push(10)
+# llist.push(20)
+# llist.push(30)
+# llist.push(50)
 
 # llist.delete_node(90)
 llist.printlist()

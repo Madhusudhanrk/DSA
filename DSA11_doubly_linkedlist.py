@@ -81,6 +81,37 @@ class DLinkedList:
             new_node.prev = last_node
             new_node.next = None
 
+    def delete_node(self,key):
+       #key means the Node which need to be deleted
+        if key is None or self.head is None:
+            return
+
+
+    #    tip: key contain a node which has prev and next value so just swap and free memory.
+
+       #case1: first node matched
+        if key == self.head:
+            self.head = key.next
+            key = None
+            return
+
+        #case2: last Node
+
+        if key.next is None:
+            key.prev.next = None
+            key = None        
+            return
+
+        #case3: middle Node
+
+        key.prev.next = key.next
+
+        key.next.prev = key.prev
+        key = None
+
+        return
+
+
     def printlist(self):
         first_node = self.head
         print(first_node.data)

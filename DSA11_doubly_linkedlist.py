@@ -54,7 +54,17 @@ class DLinkedList:
 
             new_node.prev = prev_node
             new_node.next = None
-       
+
+    def insertAfter(self,prev_node,data)  :
+        if prev_node and data:#if they contain data it will enter
+            new_node = Node(data)
+            new_node.next = prev_node.next
+            new_node.prev = prev_node
+            prev_node.next = new_node
+            if prev_node.next is not None:#if prev node is last node no need to check last node next.
+                new_node.next.prev = new_node
+            return
+
     def printlist(self):
         first_node = self.head
         print(first_node.data)
@@ -64,16 +74,16 @@ class DLinkedList:
 
 
 dlist = DLinkedList()
-# dlist.append(10)
-# dlist.append(20)
-# dlist.append(30)
-# dlist.append(40)
-# dlist.append(50)
+dlist.append(10)
+dlist.append(20)
+dlist.append(30)
+dlist.append(40)
+dlist.append(50)
 
-dlist.push(10)
-dlist.push(20)
-dlist.push(30)
-dlist.push(40)
-dlist.push(50)
+# dlist.push(10)
+# dlist.push(20)
+# dlist.push(30)
+# dlist.push(40)
+# dlist.push(50)
 
 dlist.printlist()

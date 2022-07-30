@@ -65,6 +65,22 @@ class DLinkedList:
                 new_node.next.prev = new_node
             return
 
+    def add_to_last(self,data):
+        new_node = Node(data)
+
+        if self.head is None:
+            new_node.next = None
+            new_node.prev = None
+            self.head = new_node
+        else:
+            first_node = self.head
+            while first_node.next:
+                first_node = first_node.next
+            last_node = first_node
+            last_node.next = new_node
+            new_node.prev = last_node
+            new_node.next = None
+
     def printlist(self):
         first_node = self.head
         print(first_node.data)
@@ -74,11 +90,12 @@ class DLinkedList:
 
 
 dlist = DLinkedList()
-dlist.append(10)
-dlist.append(20)
-dlist.append(30)
-dlist.append(40)
-dlist.append(50)
+# dlist.append(10)
+# dlist.append(20)
+# dlist.append(30)
+# dlist.append(40)
+# dlist.append(50)
+dlist.add_to_last(100)
 
 # dlist.push(10)
 # dlist.push(20)

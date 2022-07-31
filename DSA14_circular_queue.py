@@ -27,8 +27,8 @@ class CircularQueue:
             self.queue[self.rear] = data
         #case 3: some values present need to enqueue(append)
         else:
-            self.rear = (self.rear + 1) % self.size#this line ensures 
-            self.queue[self.rear] = data
+            self.rear = (self.rear + 1) % self.size#this line ensures index number 
+            self.queue[self.rear] = data#here data passing 
 
     def dequeue(self):
         if self.front == -1:

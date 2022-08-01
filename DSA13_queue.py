@@ -2,7 +2,7 @@
 
 #Enqueue for Insertion
 
-#Dequeuq for Deletion
+#Dequeue for Deletion
 
 # In queue Insertion from rear and deletion from front
 # Front = deletion 

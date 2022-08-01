@@ -2,6 +2,26 @@
 # 0,  1,  2,  3,  4,  5,  6,  7
 #     R   F
 
+# INSERTION if queue FULLY filled in this case 7 index filled it again start from 0 index and start override the values from 0.
+
+# DELETION In circular linked list there is no Shifting values if 0 index deleted The Front will shift to 1st index if 1st deleted FRONT move to 2nd index go on till end.
+
+# 4 cases in circular queue
+# ---------------------------
+# why -1 start becuse front won't stay in 0 it also shift so 0 also had some value
+# if front == -1 and rear == -1 means -> QUEUE is empty.
+
+# if front == queue means -> all values deleted in queue
+
+# if front == queue + 1 means -> QUEUE IS FULL
+
+# if rear == size - 1 -> QUEUE is full
+
+
+
+
+
+
 #((self.rear + 1) % self.size == self.front)
 
 # 2 % 8 == 2

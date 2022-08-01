@@ -4,6 +4,12 @@
 
 #Dequeuq for Deletion
 
+# In queue Insertion from rear and deletion from front
+# Front = deletion 
+# Rear  = Insertion
+
+
+
 #3 cases for implementing queue in python
 
 #worst Case

@@ -7,6 +7,14 @@
 # In queue Insertion from rear and deletion from front
 # Front = deletion 
 # Rear  = Insertion
+# index   0   1  2  3  4 
+# list = [10,20,30,40,50]
+#         F            R
+#initially Front and Rear is O, when the values inserted the rear will move from 0 to 1 and 2 till length of the list
+
+# but Front won't move from O because the values deleted from Front and next values will shift their indexes.\
+
+# Eg: Ticket Counter is Front and Line is Rear, Counter stay in place, Line will Reduce.
 
 
 

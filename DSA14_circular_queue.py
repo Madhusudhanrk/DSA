@@ -31,7 +31,8 @@ class CircularQueue:
 
     def __init__(self, size):
         self.size = size
-        self.queue = [None for i in range(size)]
+        self.queue = [None for i in range(size)] #based on user size creating list with None
+        #because List cannot be created without any input assigning None = size.
         self.front = -1
         self.rear = -1
 
@@ -40,28 +41,33 @@ class CircularQueue:
         if((self.rear + 1) % self.size == self.front):
             print("Queue is full")
             return
-        #case 2: if No value in queue
+        #case 2: if No value in queue inserting first value.
         elif self.front == -1:
             self.front = 0
             self.rear = 0
             self.queue[self.rear] = data
-        #case 3: some values present need to enqueue(append)
+        #case 3: some values present needed to enqueue(append)
         else:
-            self.rear = (self.rear + 1) % self.size#this line ensures index number 
-            self.queue[self.rear] = data#here data passing 
+            self.rear = (self.rear + 1) % self.size#this line ensures giving index number until reaching end of the index if size == rear - 1, it overwrite from 0 index.
+            self.queue[self.rear] = data#here data assigning 
 
     def dequeue(self):
+        #case1: checking queue is empty or not.
         if self.front == -1:
             print("Queue is already empty")
             return
+
         elif self.front == self.rear:
-            popval = self.queue[self.front]
+            #case2: only one value present in queue
+            popval = self.queue[self.front]#just taking the single value and making F and R to orginal positions
             self.front = -1
             self.rear = -1
             return popval
         else:
-            popval = self.queue[self.front]
-            self.front = (self.front + 1) % self.size
+            #case 3: if had multiple values this code
+            popval = self.queue[self.front]#taking the value from queue.
+            self.front = (self.front + 1) % self.size#this shifts front to next index
+            #this code gives next next index number until size and front equals if it front again become 0 index
             return popval
 
 cq = CircularQueue(8)

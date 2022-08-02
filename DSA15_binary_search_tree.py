@@ -20,4 +20,17 @@
 # Further tree design check with Notes
 
 
+# BST DELETION:
+# ---------------
 
+# 1. Only one value -> Delete it 
+# 2. Only one side child and this child also has child.
+    # eg: 11 child is 6 and 6 child is 9 delete 6 and assign 9 to main root.
+# 3. if root has multiple childs and childs as multiple childs.
+    # Two concepts here used
+    # 1. In order predecessor
+    # 2. In order successor
+
+    # IP: It goes on left side from root in tree here 11 left side, then find the biggest value among  all and assign the value to root value 11 = finded big value.
+
+    # IS: opposite to IP right side child of root value and find small one update to root and delete all values in right root.

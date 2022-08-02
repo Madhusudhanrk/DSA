@@ -70,7 +70,16 @@ class CircularQueue:
             #this code gives next next index number until size and front equals if it front again become 0 index
             return popval
 
-cq = CircularQueue(8)
+    def printqueue(self):
+        for i in range(0,self.size):
+            if self.queue[i] is not None:
+                print(self.queue[i])
+            length = i
+        print("Queue Lenght:",length + 1)
+
+cq = CircularQueue(5)
 cq.enqueue(190)
 cq.enqueue(290)
 cq.enqueue(390)
+
+cq.printqueue()

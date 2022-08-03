@@ -38,11 +38,16 @@
 #BST Read(Traverse):
 # BST 3 types
 """
-1. In order Traverse  (Left, Root, Right)
-2. Pre order Traverse (Root, Left, Right)
-3. Post order Traverse
+1. In order Traverse   (Left, Root, Right)
+2. Pre order Traverse  (Root, Left, Right)
+3. Post order Traverse (Left, Right, Root)
 """
+"""
+How to Traverse?
 
+* First ask it is root, if it is Appley the 3 rules for In, pre, post orders
+* Check and remember every root must print Left,right,root in every root node while backtracking.
+"""
 # IN order:
 
 """
@@ -63,4 +68,14 @@ This cycles finishes then reveret back to previous (use recurssion)
 1.Check it is root print it
 2.Go for left if it has print it, then revert back root is already printed.
 3.Go for right it has print it, if doesn't revert to root
+"""
+
+# Post Order
+
+"""
+1.first go for left side routes and find last value on the last route if it is left print it.
+
+2. Then prefer right side same till end then print
+
+3. while backtracking then only prefer root value and print it.
 """

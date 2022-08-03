@@ -34,3 +34,25 @@
     # IP: It goes on left side from root in tree here 11 left side, then find the biggest value among  all and assign the value to root value 11 = finded big value.
 
     # IS: opposite to IP right side child of root value and find small one update to root and delete all values in right root.
+
+#BST Read(Traverse):
+# BST 3 types
+"""
+1. In order Traverse
+2. Pre order Traverse
+3. Post order Traverse
+"""
+
+# IN order:
+
+"""
+Only 3 Rules:
+
+First start from Main Root
+
+1.Go Left from Main root and check it is root if it is then check it has left value.
+2.Go For left first print it, then print it's root
+3.Go For Right from root if it has print it.
+
+This cycles finishes then reveret back to previous (use recurssion)
+"""

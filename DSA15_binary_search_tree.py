@@ -38,15 +38,15 @@
 #BST Read(Traverse):
 # BST 3 types
 """
-1. In order Traverse
-2. Pre order Traverse
+1. In order Traverse  (Left, Root, Right)
+2. Pre order Traverse (Root, Left, Right)
 3. Post order Traverse
 """
 
 # IN order:
 
 """
-Only 3 Rules:
+Only 3 Rules:(Left, Root, Right)
 
 First start from Main Root
 
@@ -55,4 +55,12 @@ First start from Main Root
 3.Go For Right from root if it has print it.
 
 This cycles finishes then reveret back to previous (use recurssion)
+"""
+
+#Pre order:
+
+"""
+1.Check it is root print it
+2.Go for left if it has print it, then revert back root is already printed.
+3.Go for right it has print it, if doesn't revert to root
 """

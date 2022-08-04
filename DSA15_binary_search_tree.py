@@ -10,7 +10,7 @@
 # 2. Small values stored as LEFT child
 # 3. Big values stored as RIGHT child
  
-# eg: 11 20 13 8 53 31 21 10 50
+""" eg: 11 20 13 8 53 31 21 10 50 valuesssssssssssssssssssssss"""
 
 # 11 is main tree root
 # now 20 > 11 now 20 becomes right child to 11
@@ -79,3 +79,35 @@ This cycles finishes then reveret back to previous (use recurssion)
 
 3. while backtracking then only prefer root value and print it.
 """
+
+class Node:
+    def __init__(self,key):
+        self.left = None
+        self.right = None
+        self.key = key
+
+class BinarySearchTree:
+    def __init__(self, root = None):
+        self.root = root
+
+    def get_root(self):
+        return self.root
+
+    def insert(self, key):
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            self.insert_helper(self.root, key)
+
+    def insert_helper(self, this_node, key):
+        if this_node.key > key:
+            if this_node.left is None:
+                this_node.left = Node(key)
+            else:
+                self.insert_helper(this_node.left, key)
+        
+        else:
+            if this_node.right is None:
+                this_node.right = Node(key)
+            else:
+                self.insert_helper(this_node.right, key)

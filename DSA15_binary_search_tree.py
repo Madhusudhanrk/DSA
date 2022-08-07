@@ -1,6 +1,17 @@
 # Binary Search Tree (BST)
 # -------------------------------------------------------------------------
 
+# Use of Binary search tree is to store and perform the given values in sorted way it is very efficient and quick to sort given values for sorting related tasks it is useful.
+
+# Difference Between Binary search Tree vs Binary search:
+# -------------------------------------------------------
+
+# Binary search is an Algorithm works for finding a value in sequence like arrays but it takes sorted sequence input.
+
+# Binary search tree is a Data Structure it is used to store values in sorted format getting, setting values are very efficient in BST it uses tree structure for this.
+
+# Binary tree is sibling of BST both takes two nodes only under root node but binary tree not organized it don't share any rules like smaller value go left like.
+
 # BST INSERTION:
 # ---------------
 

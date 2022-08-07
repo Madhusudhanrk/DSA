@@ -118,3 +118,36 @@ class BinarySearchTree:
                 this_node.right = Node(key)
             else:
                 self.insert_helper(this_node.right, key)
+
+    def find_inorder_successor(self, this_node):
+        myval = this_node
+        while myval.left is not None:
+            myval = myval.left
+        return myval
+    
+    def delete_node(self, this_node, key):
+        if this_node is None:
+            return this_node
+        
+        if key < this_node.key:
+            this_node.left = self.delete_node(this_node.left, key)
+        elif key > this_node.key:
+            this_node.right = self.delete_node(this_node.right, key)
+        else:
+            #case with no child or 1 child
+            if this_node.left is None:
+                temp = this_node.right
+                this_node = None
+                return temp
+            elif this_node.right is None:
+                temp = this_node.left
+                this_node = None
+                return temp
+
+            #case with 2 child  
+
+            temp = self.find_inorder_successor(this_node.right)
+
+            this_node.key = temp.key
+            this_node.right = self.delete_node(this_node.right, temp.key)
+        return this_node

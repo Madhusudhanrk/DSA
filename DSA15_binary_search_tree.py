@@ -18,7 +18,7 @@
 # 3 Things for insertion:
 
 # 1. Main Tree variable 
-# 2. Small values stored as LEFT child
+# 2. Small and Equal values stored as LEFT child
 # 3. Big values stored as RIGHT child
  
 """ eg: 11 20 13 8 53 31 21 10 50 valuesssssssssssssssssssssss"""
@@ -137,6 +137,8 @@ class BinarySearchTree:
         return myval
     
     def delete_node(self, this_node, key):
+    #S1:Getting Root node and deleting value passed to this_node and key and checking is not empty.
+        if key: return #if passed deleting value empty return
         if this_node is None:
             return this_node
         

@@ -1,6 +1,12 @@
 from array import *
 
 # Selection sort
+# Pick 1st value then compare every value in array find small one and swap both and move to 2nd value then do it again, continue this till end of array.
+
+    #step1:We need to pick every value in array with index
+    #step2:just compare every value with arrow value find smallest one and swap both
+    #step3:Arrow_value is shift from 0 to end array index.
+    
  
 class Sort:
     def selection_sort(self,arr):

@@ -29,7 +29,8 @@ class Sort:
 
 #just compare current index and it's next index if current index bigger swap if not increase index numbers 
 
-#tip: one loop is to swap values based on value size
+#tip: one loop is to swap values based on value size it is inner loop
+    # one loop is to decrease the comparision indexes when bigger values moved to last it is outer loop.
 
 
     def bubble_sort(self,arr):

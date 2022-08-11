@@ -44,6 +44,22 @@ class Sort:
             one_index = one_index + 1
         self.sorted_values(arr)    
 
+#Insertion Sort
+# step1: we are comparing from index 1(key or i) with index 0 value if index 1 smaller swap.
+# step2: then increase index(key) by one and compare if index(key) < from key-1 do it till end like key is 2 means k<1,k<0 index if key is smaller than any other value swap, this way smaller value will be inserted in their place.
+    def insertion_sort(self,arr):
+        # 7 3 5 4 2
+        for i in range(1,len(arr)):
+            key = i
+            j = i - 1#verifying j is less than i by one index.
+            while j>=0:#conforming j no outgo by index )
+                if arr[key] < arr[j]:
+#checking if the key value is smaller than it's previous value
+                   arr[key],arr[j] = arr[j],arr[key]
+                   key = key - 1#after swap key is reduced and ready to it's next previous value.
+                j = j - 1#one index decreased because 
+                       
+        self.sorted_values(arr)
 
     def sorted_values(self,data):
         for i in data:
@@ -51,6 +67,7 @@ class Sort:
 
 
 sort = Sort()
-arr = array("i",[10 , 6 , 1, 4, 5])
+arr = array("i",[10 , 16 , 1, 4, 5])
 # sort.selection_sort(arr)
-sort.bubble_sort(arr)
+# sort.bubble_sort(arr)
+sort.insertion_sort(arr)

@@ -57,8 +57,7 @@ class Sort:
 #checking if the key value is smaller than it's previous value
                    arr[key],arr[j] = arr[j],arr[key]
                    key = key - 1#after swap key is reduced and ready to it's next previous value.
-                j = j - 1#one index decreased because 
-                       
+                j = j - 1#one index decreased because key need to be compared till index 0                      
         self.sorted_values(arr)
 
     def sorted_values(self,data):

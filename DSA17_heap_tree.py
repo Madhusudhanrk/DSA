@@ -125,4 +125,15 @@ class MinHeap:
     def swap(self,index1,index2):
         self.storage[index1], self.storage[index2] = self.storage[index2], self.storage[index1]
 
-        
+    def insert(self,data):
+        if self.isFull():
+            return print("Heap is Full")
+        self.storage[self.size] = data
+        self.size += 1
+        self.heapifyUp()
+
+    def heapifyUp(self):
+        index = self.size - 1
+        while (self.hasParent(index) and self.parent(index) > self.storage[index]):
+            self.swap(self.getParentIndex(index),index)
+        index = self.getParentIndex(index)

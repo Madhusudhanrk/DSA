@@ -140,6 +140,9 @@ class MinHeap:
     def heapifyUp(self):
         #index decreased by one beacuse just to compare prev value with it.
         index = self.size - 1
+        #Here checking given index node has parent
+        #if parent present parent node > child node means just swap
         while (self.hasParent(index) and self.parent(index) > self.storage[index]):
             self.swap(self.getParentIndex(index),index)
+        #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
             index = self.getParentIndex(index)

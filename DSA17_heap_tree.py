@@ -170,20 +170,23 @@ class MinHeap:
 #Pop Method in Recursive----------------------------------------------
 
     def removeMin(self):
-        data = self.storage[0]
+        data = self.storage[0]#storing first root element.
         self.storage[0] = self.storage[self.size - 1]
-        self.size -= 1
+        #re-write first node using last node of the tree
+        self.size -= 1 #decreaded size
         self.heapifyDown(0)
         return data
 
     def heapifyDown(self,index):
-        smallest = index
+        smallest = index#consider it is smallest as of now
+        #step2:checking root node has left child if has root node is smaller than left node, if small left node is smallest
         if self.hasLeftChild(smallest) and self.storage[smallest] > self.leftChildValue(smallest):
-            smallest = self.leftChildValue(smallest)
-
+            smallest = self.getLeftChildIndex(smallest)
+        #step3:comparing left child and right child who is smaller and their index will store in smaller variable.
         if self.hasRightChild(smallest) and self.storage[smallest] > self.rightChildValue(smallest):
-            smallest = self.rightChildValue(smallest)
-
-        if smallest != index:
+            smallest = self.getRightChildIndex(smallest)
+        #step4:after here the branch will be divided to right or left branch all swapping will be done one side only either left or right
+        #step5: the smallest value is not updated means smallest == index
+        if smallest != index:  
             self.swap(smallest,index)
-            self.heapifyDown(smallest)
+            self.heapifyDown(smallest)#here index is modified by smallest

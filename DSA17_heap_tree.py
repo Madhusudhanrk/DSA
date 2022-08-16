@@ -112,13 +112,13 @@ class MinHeap:
     
     #To return the value of the given index --------------------------------------------------------------------
 #if we send child index based on that it return the value of the parent value.
-    def parent(self,index):
+    def parentValue(self,index):
         return self.storage[self.getParentIndex(index)]
 #same give parent index return get left child value.
-    def leftChild(self,index):
+    def leftChildValue(self,index):
         return self.storage[self.getLeftChildIndex(index)]
 
-    def rightChild(self,index):
+    def rightChildValue(self,index):
         return self.storage[self.getRightChildIndex(index)]
 
     def isFull(self):
@@ -130,24 +130,24 @@ class MinHeap:
 
 #Insert Method in Iterative ----------------------------
 
-    # def insert(self,data):
-    #     if self.isFull():
-    #         return print("Heap is Full")
-    #     self.storage[self.size] = data
-    #     #every time value inserted size++ to get actual values count in tree
-    #     self.size += 1 
-    #     #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
-    #     self.heapifyUp()
+    def insert(self,data):
+        if self.isFull():
+            return print("Heap is Full")
+        self.storage[self.size] = data
+        #every time value inserted size++ to get actual values count in tree
+        self.size += 1 
+        #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
+        self.heapifyUp()
 
-    # def heapifyUp(self):
-    #     #index decreased by one beacuse just to compare prev value with it.
-    #     index = self.size - 1
-    #     #Here checking given index node has parent
-    #     #if parent present parent node > child node means just swap
-    #     while (self.hasParent(index) and self.parent(index) > self.storage[index]):
-    #         self.swap(self.getParentIndex(index),index)
-    #     #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
-    #         index = self.getParentIndex(index)
+    def heapifyUp(self):
+        #index decreased by one beacuse just to compare prev value with it.
+        index = self.size - 1
+        #Here checking given index node has parent
+        #if parent present parent node > child node means just swap
+        while (self.hasParent(index) and self.parentValue(index) > self.storage[index]):
+            self.swap(self.getParentIndex(index),index)
+        #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
+            index = self.getParentIndex(index)
 
 # insert method in Recursive
   
@@ -160,9 +160,30 @@ class MinHeap:
         #if this executed completely entire stack will pop.
 
     def heapifyUp(self,index):      
-        if self.hasParent(index) and self.parent(index) > self.storage[index]:
+        if self.hasParent(index) and self.parentValue(index) > self.storage[index]:
             self.swap(self.getParentIndex(index),index)
             self.heapifyUp(self.getParentIndex(index))
             #this code recalls same func check whether need to heapify tree or not.
         #rules:
         #just compare child and parent node based on Min heap if need to swap do it and after swapped check the parent node has parent then compare to it also till the tree heapify.
+
+#Pop Method in Recursive----------------------------------------------
+
+    def removeMin(self):
+        data = self.storage[0]
+        self.storage[0] = self.storage[self.size - 1]
+        self.size -= 1
+        self.heapifyDown(0)
+        return data
+
+    def heapifyDown(self,index):
+        smallest = index
+        if self.hasLeftChild(smallest) and self.storage[smallest] > self.leftChildValue(smallest):
+            smallest = self.leftChildValue(smallest)
+
+        if self.hasRightChild(smallest) and self.storage[smallest] > self.rightChildValue(smallest):
+            smallest = self.rightChildValue(smallest)
+
+        if smallest != index:
+            self.swap(smallest,index)
+            self.heapifyDown(smallest)

@@ -77,7 +77,7 @@ Industry prefer: MAX
 
 #Deletion In Heap Tree
  
-#min heap tree
+#MIN based Heap tree
 
 class MinHeap:
     def __init__(self,capacity):
@@ -128,21 +128,38 @@ class MinHeap:
     def swap(self,index1,index2):
         self.storage[index1], self.storage[index2] = self.storage[index2], self.storage[index1]
 
+#Insert Method in Iterative
+
+    # def insert(self,data):
+    #     if self.isFull():
+    #         return print("Heap is Full")
+    #     self.storage[self.size] = data
+    #     #every time value inserted size++ to get actual values count in tree
+    #     self.size += 1 
+    #     #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
+    #     self.heapifyUp()
+
+    # def heapifyUp(self):
+    #     #index decreased by one beacuse just to compare prev value with it.
+    #     index = self.size - 1
+    #     #Here checking given index node has parent
+    #     #if parent present parent node > child node means just swap
+    #     while (self.hasParent(index) and self.parent(index) > self.storage[index]):
+    #         self.swap(self.getParentIndex(index),index)
+    #     #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
+    #         index = self.getParentIndex(index)
+
+# insert method in Recursive
+  
     def insert(self,data):
         if self.isFull():
             return print("Heap is Full")
         self.storage[self.size] = data
-        #every time value inserted size++ to get actual values count in tree
         self.size += 1 
-        #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
-        self.heapifyUp()
+        self.heapifyUp(self.size - 1)
 
-    def heapifyUp(self):
-        #index decreased by one beacuse just to compare prev value with it.
-        index = self.size - 1
-        #Here checking given index node has parent
-        #if parent present parent node > child node means just swap
-        while (self.hasParent(index) and self.parent(index) > self.storage[index]):
+    def heapifyUp(self,index):      
+        if self.hasParent(index) and self.parent(index) > self.storage[index]:
             self.swap(self.getParentIndex(index),index)
-        #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
-            index = self.getParentIndex(index)
+            self.heapifyUp(self.getParentIndex(index))
+            #this code recalls it to check whether need to heapify tree or not.

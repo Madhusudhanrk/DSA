@@ -128,7 +128,7 @@ class MinHeap:
     def swap(self,index1,index2):
         self.storage[index1], self.storage[index2] = self.storage[index2], self.storage[index1]
 
-#Insert Method in Iterative
+#Insert Method in Iterative ----------------------------
 
     # def insert(self,data):
     #     if self.isFull():
@@ -156,10 +156,13 @@ class MinHeap:
             return print("Heap is Full")
         self.storage[self.size] = data
         self.size += 1 
-        self.heapifyUp(self.size - 1)
+        self.heapifyUp(self.size - 1)#newly inserted data index
+        #if this executed completely entire stack will pop.
 
     def heapifyUp(self,index):      
         if self.hasParent(index) and self.parent(index) > self.storage[index]:
             self.swap(self.getParentIndex(index),index)
             self.heapifyUp(self.getParentIndex(index))
-            #this code recalls it to check whether need to heapify tree or not.
+            #this code recalls same func check whether need to heapify tree or not.
+        #rules:
+        #just compare child and parent node based on Min heap if need to swap do it and after swapped check the parent node has parent then compare to it also till the tree heapify.

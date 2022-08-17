@@ -81,7 +81,7 @@ Industry prefer: MAX
 
 class MinHeap:
     def __init__(self,capacity):
-        self.storage = [0] * capacity
+        self.storage = [None] * capacity
         self.capacity = capacity
         self.size = 0
 
@@ -130,24 +130,24 @@ class MinHeap:
 
 #Insert Method in Iterative ----------------------------
 
-    def insert(self,data):
-        if self.isFull():
-            return print("Heap is Full")
-        self.storage[self.size] = data
-        #every time value inserted size++ to get actual values count in tree
-        self.size += 1 
-        #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
-        self.heapifyUp()
+    # def insert(self,data):
+    #     if self.isFull():
+    #         return print("Heap is Full")
+    #     self.storage[self.size] = data
+    #     #every time value inserted size++ to get actual values count in tree
+    #     self.size += 1 
+    #     #heapify means based on MIN or Max choosen values inserted as per rules or construcing heap tree structure.
+    #     self.heapifyUp()
 
-    def heapifyUp(self):
-        #index decreased by one beacuse just to compare prev value with it.
-        index = self.size - 1
-        #Here checking given index node has parent
-        #if parent present parent node > child node means just swap
-        while (self.hasParent(index) and self.parentValue(index) > self.storage[index]):
-            self.swap(self.getParentIndex(index),index)
-        #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
-            index = self.getParentIndex(index)
+    # def heapifyUp(self):
+    #     #index decreased by one beacuse just to compare prev value with it.
+    #     index = self.size - 1
+    #     #Here checking given index node has parent
+    #     #if parent present parent node > child node means just swap
+    #     while (self.hasParent(index) and self.parentValue(index) > self.storage[index]):
+    #         self.swap(self.getParentIndex(index),index)
+    #     #after swapping getting swaped node parent index by using the parent index and present swapped value comparing and if not matched to MIN heap again swap until the tree comes to MIN Heap Structure.
+    #         index = self.getParentIndex(index)
 
 # insert method in Recursive
   
@@ -173,6 +173,8 @@ class MinHeap:
         data = self.storage[0]#storing first root element.
         self.storage[0] = self.storage[self.size - 1]
         #re-write first node using last node of the tree
+        self.storage[self.size - 1] = None
+        #making last node None
         self.size -= 1 #decreaded size
         self.heapifyDown(0)
         return data
@@ -190,3 +192,21 @@ class MinHeap:
         if smallest != index:  
             self.swap(smallest,index)
             self.heapifyDown(smallest)#here index is modified by smallest
+
+    def heap_traverse(self):
+        for i in min_heap.storage:
+            print(i)
+
+min_heap = MinHeap(8)
+
+#heap insert Input
+arr = [10,21,90,50,20,22,23,1]
+for i in arr:
+    min_heap.insert(i)
+
+#heap pop -> just removes top element
+# min_heap.removeMin()
+# min_heap.removeMin()
+
+#heap traverse
+min_heap.heap_traverse()

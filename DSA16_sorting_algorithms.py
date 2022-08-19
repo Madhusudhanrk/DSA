@@ -5,6 +5,7 @@ from array import *
 class Sort:
 
 # Selection sort
+#-------------------------------------------------------------------------
 # Pick 1st value then compare every value in array find small one and swap both and move to 2nd value then do it again, continue this till end of array.
 
     #step1:We need to pick every value in array with index
@@ -23,6 +24,7 @@ class Sort:
         self.sorted_values(arr)
 
 #bubble sort
+#---------------------------------------------------------------------------
 #compare element 1 by 1 if one is big than another swap this way at end u get big value all of them.
 
 #so now the big value is at least so don't need to check till end so -1 index and check all values again.
@@ -45,6 +47,8 @@ class Sort:
         self.sorted_values(arr)    
 
 #Insertion Sort
+#---------------------------------------------------------------------------
+
 # step1: we are comparing from index 1(key or i) with index 0 value if index 1 smaller swap.
 # step2: then increase index(key) by one and compare if index(key) < from key-1 do it till end like key is 2 means k<1,k<0 index if key is smaller than any other value swap, this way smaller value will be inserted in their place.
     def insertion_sort(self,arr):
@@ -64,9 +68,15 @@ class Sort:
         for i in data:
             print(i,end=" ")
 
-
 sort = Sort()
 arr = array("i",[10 , 16 , 1, 4, 5])
 # sort.selection_sort(arr)
 # sort.bubble_sort(arr)
 sort.insertion_sort(arr)
+
+#Qiuck sort
+#---------------------------------------------------------------------------
+
+# About quick sort
+
+# The key process in quickSort is a partition(). The target of partitions is, given an array and an element x of an array as the pivot, put x at its correct position in a sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.

@@ -210,3 +210,10 @@ for i in arr:
 
 #heap traverse
 min_heap.heap_traverse()
+
+# Use of heap tree
+#--------------------------------------------------------
+
+#used to find instant smallest or largest value based on MIN and Max heap.
+
+#used to priority the task and make shedules also based on Min and Max heap.

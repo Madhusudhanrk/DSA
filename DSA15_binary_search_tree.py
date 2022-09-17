@@ -94,27 +94,32 @@ This cycles finishes then reveret back to previous (use recurssion)
 
 
 
-class Node:
+class Node:#step1:Create a node with value and left,right sides
     def __init__(self,key):
         self.key = key
         self.left = None
         self.right = None
 
 class BinarySearchTree:
-
     def __init__(self,root = None):
         self.root = root
 
+    #step2:create a root variable and assign the root node obj to it and crate a method to get that root node.
     def get_root(self):
         return self.root
 
+    #step3:create a insert Method to check whether this is the first node or already having nodes in tree.
     def insert(self,key):
         if self.root is None:
             self.root = Node(key)
         else:
             self.insert_helper(key,self.root)
 
+    #step4:Creat helper method for inserting node if has some nodes in tree
     def insert_helper(self,key,parent_node):
+    #step5:In helper method check from root node if the inserting value is lesser or greater than root value.
+
+    #step6:Based on the comparision go for left or right and check if that side has any node if it there repeat same process above did just compare go one side, if has node just compare go one side till end of tree and insert it do it for every inserting value.
         if key < parent_node.key:
             if parent_node.left is None:
                 parent_node.left = Node(key)
@@ -127,45 +132,6 @@ class BinarySearchTree:
                 self.insert_helper(key,parent_node.right)
 
 
-class Node:
-    #step1:Create Node with 3 variables left(node addr or obj), data(key), Right(node addr)
-    def __init__(self,key):
-        self.left = None
-        self.right = None
-        self.key = key #key_data is the actual data_value in root
-
-class BinarySearchTree:
-    #step2:create root variable assign the Node into root now root contain node 3 variables
-    def __init__(self, root = None):
-        self.root = root 
-        #root contains a node inside left, right values addr and data or key.
-
-    def get_root(self):
-        return self.root
-    # step3: create insert function if root empty create Node and assign to root
-    def insert(self, key):
-        if self.root is None:
-            self.root = Node(key)
-        else:
-            self.insert_helper(self.root, key)
-    #step4: if root contain a node, check the root.key is greater or lesser than the value ur passing.
-
-    #step5: if value is > then check the root left is empty or not, if empty create node, if not empty again recall the function using recurrsion with updated root.
-
-    #step6: same for the value is < then do the same procedure, create new root in right side.
-    def insert_helper(self, this_node, key):
-        #insert val smaller than root go for it or go for else.
-        if this_node.key > key:#this_node is previously created and here key is new value.
-            if this_node.left is None:#if prev.root left is empty create New root or node.
-                this_node.left = Node(key)
-            else:
-                self.insert_helper(this_node.left, key)
-        
-        else:
-            if this_node.right is None:
-                this_node.right = Node(key)
-            else:
-                self.insert_helper(this_node.right, key)
 
     def find_inorder_successor(self, this_node):
         myval = this_node

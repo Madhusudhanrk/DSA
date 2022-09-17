@@ -18,8 +18,9 @@
 # 3 Things for insertion:
 
 # 1. Main Tree variable 
-# 2. Small and Equal values stored as LEFT child
+# 2. Small values stored as LEFT child
 # 3. Big values stored as RIGHT child
+# 4. Equal values ignored or throw an exception.
  
 """ eg: 11 20 13 8 53 31 21 10 50 valuesssssssssssssssssssssss"""
 
@@ -91,6 +92,41 @@ This cycles finishes then reveret back to previous (use recurssion)
 3. while backtracking then only prefer root value and print it.
 """
 
+
+
+class Node:
+    def __init__(self,key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+class BinarySearchTree:
+
+    def __init__(self,root = None):
+        self.root = root
+
+    def get_root(self):
+        return self.root
+
+    def insert(self,key):
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            self.insert_helper(key,self.root)
+
+    def insert_helper(self,key,parent_node):
+        if key < parent_node.key:
+            if parent_node.left is None:
+                parent_node.left = Node(key)
+            else:
+                self.insert_helper(key,parent_node.left)
+        else:
+            if parent_node.right is None:
+                parent_node.right = Node(key)
+            else:
+                self.insert_helper(key,parent_node.right)
+
+
 class Node:
     #step1:Create Node with 3 variables left(node addr or obj), data(key), Right(node addr)
     def __init__(self,key):
@@ -118,6 +154,7 @@ class BinarySearchTree:
 
     #step6: same for the value is < then do the same procedure, create new root in right side.
     def insert_helper(self, this_node, key):
+        #insert val smaller than root go for it or go for else.
         if this_node.key > key:#this_node is previously created and here key is new value.
             if this_node.left is None:#if prev.root left is empty create New root or node.
                 this_node.left = Node(key)

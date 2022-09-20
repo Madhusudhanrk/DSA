@@ -1,4 +1,4 @@
-# calculating performance of an application 2 ways: 
+# calculating performance of an application 2 ways:  
 
 # 1. find time when strat and subtract the time when execution end (not so good)
 

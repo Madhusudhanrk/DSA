@@ -95,8 +95,8 @@ This cycles finishes then reveret back to previous (use recurssion)
 
 
 class Node:#step1:Create a node with value and left,right sides
-    def __init__(self,key):
-        self.key = key
+    def __init__(self,key_val):
+        self.key_val = key_val
         self.left = None
         self.right = None
 
@@ -109,27 +109,27 @@ class BinarySearchTree:
         return self.root
 
     #step3:create a insert Method to check whether this is the first node or already having nodes in tree.
-    def insert(self,key):
+    def insert(self,key_val):
         if self.root is None:
-            self.root = Node(key)
+            self.root = Node(key_val)
         else:
-            self.insert_helper(key,self.root)
+            self.insert_helper(key_val,self.root)
 
     #step4:Creat helper method for inserting node if has some nodes in tree
-    def insert_helper(self,key,parent_node):
+    def insert_helper(self,key_val,parent_node):
     #step5:In helper method check from root node if the inserting value is lesser or greater than root value.
 
     #step6:Based on the comparision go for left or right and check if that side has any node if it there repeat same process above did just compare go one side, if has node just compare go one side till end of tree and insert it do it for every inserting value.
-        if key < parent_node.key:
+        if key_val < parent_node.key_val:
             if parent_node.left is None:
-                parent_node.left = Node(key)
+                parent_node.left = Node(key_val)
             else:
-                self.insert_helper(key,parent_node.left)
+                self.insert_helper(key_val,parent_node.left)
         else:
             if parent_node.right is None:
-                parent_node.right = Node(key)
+                parent_node.right = Node(key_val)
             else:
-                self.insert_helper(key,parent_node.right)
+                self.insert_helper(key_val,parent_node.right)
 
 
 
@@ -139,17 +139,25 @@ class BinarySearchTree:
             myval = myval.left
         return myval
     
-    def delete_node(self, this_node, key):
-    #S1:Getting Root node and deleting value passed to this_node and key and checking is not empty.
-        if key: return #if passed deleting value empty return
+    def delete_node(self, this_node, key_val):
+        #this_node = root node while method starting
+        #key_val       = use deleting node
+    #S1:Getting Root node and deleting value passed to this_node and key_val and checking is not empty.
+
+        #step1:checking the key_val and node is None or not
+        if key_val: return 
         if this_node is None:
-            return this_node
+            print("This_node is None")
         
-        if key < this_node.key:
-            this_node.left = self.delete_node(this_node.left, key)
-        elif key > this_node.key:
-            this_node.right = self.delete_node(this_node.right, key)
+        #step2:checking the node in left side or right side and keep on digging until finding the node, if it is mathced (store the node in this_node) and go for else condition.
+        if key_val < this_node.key_val:
+            this_node.left = self.delete_node(this_node.left, key_val)
+        elif key_val > this_node.key_val:
+            this_node.right = self.delete_node(this_node.right, key_val)
+        # Note:Here passing entire node obj and same key_val value, the recursion keep on digging until key_val is not greater or lesser it becomes equal this_node contain deleting node.
+
         else:
+
             #case with no child or 1 child
             if this_node.left is None:
                 temp = this_node.right
@@ -164,6 +172,16 @@ class BinarySearchTree:
 
             temp = self.find_inorder_successor(this_node.right)
 
-            this_node.key = temp.key
-            this_node.right = self.delete_node(this_node.right, temp.key)
+            this_node.key_val = temp.key_val
+            this_node.right = self.delete_node(this_node.right, temp.key_val)
         return this_node
+
+
+bst = BinarySearchTree()
+
+my_list = [40,30,50,25,35,45,60,20,26,33,37,43,46,55,65]
+
+for i in my_list:
+    bst.insert(i)
+root_node = bst.get_root()
+bst.delete_node(root_node,37)

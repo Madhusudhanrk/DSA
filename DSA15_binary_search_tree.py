@@ -195,19 +195,23 @@ class BinarySearchTree:
             self.search(this_node.right,key_val)
         else:#if not found
             print("Key Not Present")
+    #This 3 types is used for taking values from tree in different ways developer need to consider which type should be used to work efficiently
 
+    #Inorder name itself says how tree inserted way that traverse LEFT,ROOT,RIGHT
     def inorder(self,this_node):
         if this_node:
             self.inorder(this_node.left)
             print(this_node.key_val,", ",end="")
             self.inorder(this_node.right)
-
+    #Preorder is used to first consider Roots then go for left and right side values.
+    #It gives Root value at first and Biggest value at last.
     def preorder(self,this_node):
         if this_node:
             print(this_node.key_val,", ",end="")
             self.preorder(this_node.left)
             self.preorder(this_node.right)   
-    
+    #Postorder is used to first consider Leafs then go For Root
+    #It gives Smallest value first then give Root at last
     def postorder(self,this_node):
         if this_node:
             self.postorder(this_node.left)

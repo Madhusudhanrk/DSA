@@ -177,20 +177,23 @@ class BinarySearchTree:
         return this_node
 
     def search(self,this_node,key_val):
-        if this_node is None:
+        if this_node is None:#this code verifies  root_node is not empty
             print("Provide root node")
             return False
-        if key_val is None:
+        if key_val is None:#this code verifies key is not empty
             print("Provide search key")
             return False   
+        #if key_val matched to the current or this node key val return True
+        if key_val == this_node.key:
+            return True
+        #this code ensures to keep on digging till end of the tree to find the search value in every node.
 
+        #How it does using Recursion just take root_node.key and compare search key is smaller or bigger based on that go for one side and again recall the search funtion using present node by passing as parameter using recurssion.
         if key_val < this_node.key_val:
             self.search(this_node.left,key_val)
         elif key_val > this_node.key_val:
             self.search(this_node.right,key_val)
-        elif key_val == this_node.key:
-            return True
-        else:
+        else:#if not found
             print("Key Not Present")
 
 

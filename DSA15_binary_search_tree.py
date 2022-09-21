@@ -196,6 +196,23 @@ class BinarySearchTree:
         else:#if not found
             print("Key Not Present")
 
+    def inorder(self,this_node):
+        if this_node:
+            self.inorder(this_node.left)
+            print(this_node.key_val,", ",end="")
+            self.inorder(this_node.right)
+
+    def preorder(self,this_node):
+        if this_node:
+            print(this_node.key_val,", ",end="")
+            self.preorder(this_node.left)
+            self.preorder(this_node.right)   
+    
+    def postorder(self,this_node):
+        if this_node:
+            self.postorder(this_node.left)
+            self.postorder(this_node.right)
+            print(this_node.key_val,", ",end="")
 
 bst = BinarySearchTree()
 
@@ -204,4 +221,7 @@ my_list = [40,30,50,25,35,45,60,20,26,33,37,43,46,55,65]
 for i in my_list:
     bst.insert(i)
 root_node = bst.get_root()
-bst.delete_node(root_node,37)
+# bst.inorder(root_node)
+# bst.preorder(root_node)
+bst.postorder(root_node)
+# bst.delete_node(root_node,37)

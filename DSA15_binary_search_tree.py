@@ -176,6 +176,23 @@ class BinarySearchTree:
             this_node.right = self.delete_node(this_node.right, temp.key_val)
         return this_node
 
+    def search(self,this_node,key_val):
+        if this_node is None:
+            print("Provide root node")
+            return False
+        if key_val is None:
+            print("Provide search key")
+            return False   
+
+        if key_val < this_node.key_val:
+            self.search(this_node.left,key_val)
+        elif key_val > this_node.key_val:
+            self.search(this_node.right,key_val)
+        elif key_val == this_node.key:
+            return True
+        else:
+            print("Key Not Present")
+
 
 bst = BinarySearchTree()
 

@@ -145,7 +145,7 @@ class BinarySearchTree:
     #S1:Getting Root node and deleting value passed to this_node and key_val and checking is not empty.
 
         #step1:checking the key_val and node is None or not
-        if key_val: return 
+        if key_val: return False
         if this_node is None:
             print("This_node is None")
         

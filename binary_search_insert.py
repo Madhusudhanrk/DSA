@@ -1,71 +1,33 @@
-# class Node:   
-#     def __init__(self,data):
-#         self.left = None
-#         self.right = None
-#         self.data = data
-    
-#     def insert(self,data):
-#         if(self.data == data):
-#             raise Exception("Data is Duplicate")
-#         elif data < self.data:
-#             if self.left:
-#                 self.left.insert(data)
-#             else:
-#                 self.left = Node(data)
-#         else:
-#             if self.right:
-#                 self.right.insert(data)
-#             else:
-#                 self.right = Node(data)
+def delete_node(self,this_node,key_val):
 
-# class BST:
-#     def __init__(self):
-#         self.root = None
+    if this_node is None:
+        return print("root Node is empy")
+    if key_val is None:return False
 
-#     def insert(self,data):
-#         if self.root:
-#             self.root.insert(data)
-#         else:
-#             self.root = Node(data)
+    if key_val < this_node.key:
+        this_node.left = self.delete_node(this_node.left,key_val)
+    elif key_val > this_node.key:
+        this_node.right  = self.delete_node(this_node.right,key_val)
+    else:
+        if this_node.left is None:
+            temp = this_node.right
+            this_node.right = None
+            return temp
+        
+        if this_node.right is None:
+            temp = this_node.left
+            this_node.left = None
+            return temp
+        
+        temp = self.find_inorder_successor(this_node)
 
-    
-# BST = BST()
-# values = [10,5,20,15,30,5,40,25,60]
-# for i in values:
-#     BST.insert(i)
+        this_node.key = temp.key
 
+        this_node.right = self.delete_node(this_node.right,temp.key)
 
-class Node:
-    def __init__(self,key):
-        self.key = key
-        self.left = None
-        self.right = None
+def successor(this_node):
+    temp = this_node
+    while temp.left is None:
+        temp  = temp.left
 
-class BinarySearchTree:
-
-    def __init__(self,root = None):
-        self.root = root
-
-    def get_root(self):
-        return self.root
-
-    def insert(self,key):
-        if self.root is None:
-            self.root = Node(key)
-        else:
-            self.insert_helper(key,self.root)
-
-    def insert_helper(self,key,parent_node):
-        if key < parent_node.key:
-            if parent_node.left is None:
-                parent_node.left = Node(key)
-            else:
-                self.insert_helper(key,parent_node.left)
-        else:
-            if parent_node.right is None:
-                parent_node.right = Node(key)
-            else:
-                self.insert_helper(key,parent_node.right)
-
-
-    
+    return temp

@@ -145,13 +145,14 @@ class BinarySearchTree:
     #S1:Getting Root node and deleting value passed to this_node and key_val and checking is not empty.
 
         #step1:checking the key_val and node is None or not
-        if key_val: return False
+        if key_val is None: return False
         if this_node is None:
             print("This_node is None")
         
         #step2:checking the node in left side or right side and keep on digging until finding the node, if it is mathced (store the node in this_node) and go for else condition.
         if key_val < this_node.key_val:
             this_node.left = self.delete_node(this_node.left, key_val)
+            #Note this_node.left and right is used for storing the return node in recursion process after deleting it is used to maintain structure of the tree.
         elif key_val > this_node.key_val:
             this_node.right = self.delete_node(this_node.right, key_val)
         # Note:Here passing entire node obj and same key_val value, the recursion keep on digging until key_val is not greater or lesser it becomes equal this_node contain deleting node.
@@ -159,6 +160,7 @@ class BinarySearchTree:
         else:
 
             #case with no child or 1 child
+            #Note: if left and right both is none means it return this_node.right or left eventually it is None default check with Node class.
             if this_node.left is None:
                 temp = this_node.right
                 this_node = None
@@ -171,9 +173,11 @@ class BinarySearchTree:
             #case with 2 child  
 
             temp = self.find_inorder_successor(this_node.right)
-
+            #Finding successor and replacing successor value down with deleting node key.
             this_node.key_val = temp.key_val
-            this_node.right = self.delete_node(this_node.right, temp.key_val)
+            #Here down delete_node takes node right as parameter becuse we used successor so tree should re_arrange right side and successor key passed as parameter.
+            self.delete_node(this_node.right, temp.key_val)
+            #using this two parameters it's keep on digging until finding successor and just based on it is left or right side it's parent node side assigned to None.
         return this_node
 
     def search(self,this_node,key_val):
@@ -220,12 +224,13 @@ class BinarySearchTree:
 
 bst = BinarySearchTree()
 
-my_list = [40,30,50,25,35,45,60,20,26,33,37,43,46,55,65]
+my_list = [40,30,50,25,35,45,60,20,26,33,37,43,46,55,65,34,38,32,36]
 
 for i in my_list:
     bst.insert(i)
 root_node = bst.get_root()
-# bst.inorder(root_node)
+# print(root_node.key_val)
+bst.delete_node(root_node,30)
+bst.inorder(root_node)
 # bst.preorder(root_node)
-bst.postorder(root_node)
-# bst.delete_node(root_node,37)
+# bst.postorder(root_node)

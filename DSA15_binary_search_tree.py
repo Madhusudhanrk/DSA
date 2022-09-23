@@ -176,8 +176,9 @@ class BinarySearchTree:
             #Finding successor and replacing successor value down with deleting node key.
             this_node.key_val = temp.key_val
             #Here down delete_node takes node right as parameter becuse we used successor so tree should re_arrange right side and successor key passed as parameter.
-            self.delete_node(this_node.right, temp.key_val)
+            this_node.right = self.delete_node(this_node.right, temp.key_val)
             #using this two parameters it's keep on digging until finding successor and just based on it is left or right side it's parent node side assigned to None.
+            #Note:this_node.right used to remap the right side of this_node if we use in order predeccessor use this_node.left.
         return this_node
 
     def search(self,this_node,key_val):
@@ -224,7 +225,7 @@ class BinarySearchTree:
 
 bst = BinarySearchTree()
 
-my_list = [40,30,50,25,35,45,60,20,26,33,37,43,46,55,65,34,38,32,36]
+my_list = [40,30,50,25,31,35,45,60,20,26,33,37,43,46,55,51,65]
 
 for i in my_list:
     bst.insert(i)

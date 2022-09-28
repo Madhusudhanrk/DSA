@@ -95,8 +95,8 @@ This cycles finishes then reveret back to previous (use recurssion)
 
 
 class Node:#step1:Create a node with value and left,right sides
-    def __init__(self,key_val):
-        self.key_val = key_val
+    def __init__(self,key):
+        self.key = key
         self.left = None
         self.right = None
 
@@ -109,27 +109,27 @@ class BinarySearchTree:
         return self.root
 
     #step3:create a insert Method to check whether this is the first node or already having nodes in tree.
-    def insert(self,key_val):
+    def insert(self,key):
         if self.root is None:
-            self.root = Node(key_val)
+            self.root = Node(key)
         else:
-            self.insert_helper(key_val,self.root)
+            self.insert_helper(key,self.root)
 
     #step4:Creat helper method for inserting node if has some nodes in tree
-    def insert_helper(self,key_val,parent_node):
+    def insert_helper(self,key,parent_node):
     #step5:In helper method check from root node if the inserting value is lesser or greater than root value.
 
     #step6:Based on the comparision go for left or right and check if that side has any node if it there repeat same process above did just compare go one side, if has node just compare go one side till end of tree and insert it do it for every inserting value.
-        if key_val < parent_node.key_val:
+        if key < parent_node.key:
             if parent_node.left is None:
-                parent_node.left = Node(key_val)
+                parent_node.left = Node(key)
             else:
-                self.insert_helper(key_val,parent_node.left)
+                self.insert_helper(key,parent_node.left)
         else:
             if parent_node.right is None:
-                parent_node.right = Node(key_val)
+                parent_node.right = Node(key)
             else:
-                self.insert_helper(key_val,parent_node.right)
+                self.insert_helper(key,parent_node.right)
 
 
 
@@ -139,23 +139,23 @@ class BinarySearchTree:
             myval = myval.left
         return myval
     
-    def delete_node(self, this_node, key_val):
+    def delete_node(self, this_node, key):
         #this_node = root node while method starting
-        #key_val       = use deleting node
-    #S1:Getting Root node and deleting value passed to this_node and key_val and checking is not empty.
+        #key       = use deleting node
+    #S1:Getting Root node and deleting value passed to this_node and key and checking is not empty.
 
-        #step1:checking the key_val and node is None or not
-        if key_val is None: return False
+        #step1:checking the key and node is None or not
+        if key is None: return False
         if this_node is None:
             print("This_node is None")
         
         #step2:checking the node in left side or right side and keep on digging until finding the node, if it is mathced (store the node in this_node) and go for else condition.
-        if key_val < this_node.key_val:
-            this_node.left = self.delete_node(this_node.left, key_val)
+        if key < this_node.key:
+            this_node.left = self.delete_node(this_node.left, key)
             #Note this_node.left and right is used for storing the return node in recursion process after deleting it is used to maintain structure of the tree.
-        elif key_val > this_node.key_val:
-            this_node.right = self.delete_node(this_node.right, key_val)
-        # Note:Here passing entire node obj and same key_val value, the recursion keep on digging until key_val is not greater or lesser it becomes equal this_node contain deleting node.
+        elif key > this_node.key:
+            this_node.right = self.delete_node(this_node.right, key)
+        # Note:Here passing entire node obj and same key value, the recursion keep on digging until key is not greater or lesser it becomes equal this_node contain deleting node.
 
         else:
 
@@ -174,30 +174,30 @@ class BinarySearchTree:
 
             temp = self.find_inorder_successor(this_node.right)
             #Finding successor and replacing successor value down with deleting node key.
-            this_node.key_val = temp.key_val
+            this_node.key = temp.key
             #Here down delete_node takes node right as parameter becuse we used successor so tree should re_arrange right side and successor key passed as parameter.
-            this_node.right = self.delete_node(this_node.right, temp.key_val)
+            this_node.right = self.delete_node(this_node.right, temp.key)
             #using this two parameters it's keep on digging until finding successor and just based on it is left or right side it's parent node side assigned to None.
             #Note:this_node.right used to remap the right side of this_node if we use in order predeccessor use this_node.left.
         return this_node
 
-    def search(self,this_node,key_val):
+    def search(self,this_node,key):
         if this_node is None:#this code verifies  root_node is not empty
             print("Provide root node")
             return False
-        if key_val is None:#this code verifies key is not empty
+        if key is None:#this code verifies key is not empty
             print("Provide search key")
             return False   
-        #if key_val matched to the current or this node key val return True
-        if key_val == this_node.key:
+        #if key matched to the current or this node key val return True
+        if key == this_node.key:
             return True
         #this code ensures to keep on digging till end of the tree to find the search value in every node.
 
         #How it does using Recursion just take root_node.key and compare search key is smaller or bigger based on that go for one side and again recall the search funtion using present node by passing as parameter using recurssion.
-        if key_val < this_node.key_val:
-            self.search(this_node.left,key_val)
-        elif key_val > this_node.key_val:
-            self.search(this_node.right,key_val)
+        if key < this_node.key:
+            self.search(this_node.left,key)
+        elif key > this_node.key:
+            self.search(this_node.right,key)
         else:#if not found
             print("Key Not Present")
     #This 3 types is used for taking values from tree in different ways developer need to consider which type should be used to work efficiently
@@ -206,13 +206,13 @@ class BinarySearchTree:
     def inorder(self,this_node):
         if this_node:
             self.inorder(this_node.left)
-            print(this_node.key_val,", ",end="")
+            print(this_node.key,", ",end="")
             self.inorder(this_node.right)
     #Preorder is used to first consider Roots then go for left and right side values.
     #It gives Root value at first and Biggest value at last.
     def preorder(self,this_node):
         if this_node:
-            print(this_node.key_val,", ",end="")
+            print(this_node.key,", ",end="")
             self.preorder(this_node.left)
             self.preorder(this_node.right)   
     #Postorder is used to first consider Leafs then go For Root
@@ -221,7 +221,7 @@ class BinarySearchTree:
         if this_node:
             self.postorder(this_node.left)
             self.postorder(this_node.right)
-            print(this_node.key_val,", ",end="")
+            print(this_node.key,", ",end="")
 
 bst = BinarySearchTree()
 
@@ -230,7 +230,7 @@ my_list = [40,30,50,25,31,35,45,60,20,26,33,37,43,46,55,51,65]
 for i in my_list:
     bst.insert(i)
 root_node = bst.get_root()
-# print(root_node.key_val)
+# print(root_node.key)
 bst.delete_node(root_node,30)
 bst.inorder(root_node)
 # bst.preorder(root_node)
